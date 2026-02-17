@@ -38,17 +38,21 @@ export default function HeroSection() {
                 Fundamental Mathematics &bull; University of Mila
               </p>
               <p className="text-[var(--color-text-secondary)] max-w-lg mb-6 leading-relaxed">
-                Exploring the beauty of dynamical systems, advanced analysis, and topology.
-                Passionate about uncovering mathematical structures that govern complex phenomena.
+                Exploring the beauty of closed-form expressions, infinite series, and classical integrals.
+                Passionate about the art of exact evaluation and the deep structures hidden within analysis.
               </p>
 
               {/* About Me */}
               <div className="bg-surface-50 dark:bg-gray-800 rounded-xl p-5 mb-6 border border-[var(--color-border)]">
                 <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
                   I am a Master&apos;s student in Fundamental Mathematics at the University of Mila, Algeria.
-                  My research focuses on dynamical systems and their applications in mathematical analysis.
-                  I am passionate about rigorous mathematical reasoning and enjoy sharing knowledge through
-                  teaching and writing.
+                  My mathematical passion lies in the exact evaluation of definite integrals and infinite series
+                  — particularly famous and historically significant problems from classical analysis. I spend
+                  much of my time investigating techniques such as contour integration, special function identities,
+                  series acceleration, and creative substitutions to obtain closed-form results. I believe that
+                  mathematics is at its most beautiful when a complex expression collapses into something
+                  unexpectedly simple, and I use this website to share that beauty with others through articles,
+                  problem solutions, and resources.
                 </p>
               </div>
 
