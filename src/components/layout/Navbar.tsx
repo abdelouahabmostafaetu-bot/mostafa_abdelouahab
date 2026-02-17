@@ -42,7 +42,7 @@ export default function Navbar() {
             href="/"
             className="font-heading text-xl font-bold text-primary-800 dark:text-primary-300 hover:text-accent-500 transition-colors"
           >
-            YN
+            AM
           </Link>
 
           {/* Desktop Links */}

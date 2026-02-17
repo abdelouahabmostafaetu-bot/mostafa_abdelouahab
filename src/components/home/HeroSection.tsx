@@ -11,10 +11,12 @@ export default function HeroSection() {
           <ScrollAnimation animation="slide-in-left" className="flex-shrink-0">
             <div className="relative">
               <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-xl ring-4 ring-primary-100 dark:ring-primary-900">
-                {/* Replace with your photo - place it at public/images/profile/main-photo.jpg */}
-                <div className="w-full h-full bg-gradient-to-br from-primary-300 to-primary-700 flex items-center justify-center">
-                  <span className="text-5xl font-heading font-bold text-white">YN</span>
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/profile/main-photo.jpg"
+                  alt="Profile photo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               {/* Gold accent ring */}
               <div className="absolute -bottom-2 -right-2 w-12 h-12 rounded-full bg-accent-500 flex items-center justify-center shadow-lg">
@@ -30,7 +32,7 @@ export default function HeroSection() {
                 Master&apos;s Student in Mathematics
               </p>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-text)] mb-4">
-                Your Name
+                Abdelouahab Mostafa
               </h1>
               <p className="text-lg md:text-xl text-primary-800 dark:text-primary-300 font-medium mb-3">
                 Fundamental Mathematics &bull; University of Mila

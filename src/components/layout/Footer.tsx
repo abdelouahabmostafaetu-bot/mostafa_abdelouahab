@@ -11,7 +11,7 @@ export default function Footer() {
           {/* About */}
           <div>
             <h3 className="font-heading text-lg font-bold text-[var(--color-text)] mb-3">
-              Your Name
+              Abdelouahab Mostafa
             </h3>
             <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
               Master&apos;s Student in Fundamental Mathematics at the University of Mila, Algeria.
@@ -93,7 +93,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-6 border-t border-[var(--color-border)] text-center text-xs text-[var(--color-text-secondary)]">
-          <p>&copy; {currentYear} Your Name. All rights reserved.</p>
+          <p>&copy; {currentYear} Abdelouahab Mostafa. All rights reserved.</p>
           <p className="mt-1">Built with Next.js &amp; Tailwind CSS</p>
         </div>
       </div>

@@ -5,11 +5,11 @@ import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Your Name — Mathematics Researcher',
-    template: '%s | Your Name',
+    default: 'Abdelouahab Mostafa — Mathematics Researcher',
+    template: '%s | Abdelouahab Mostafa',
   },
   description:
-    "Personal academic website of Your Name, Master's student in Fundamental Mathematics at the University of Mila, Algeria. Research in dynamical systems, analysis, and topology.",
+    "Personal academic website of Abdelouahab Mostafa, Master's student in Fundamental Mathematics at the University of Mila, Algeria. Research in dynamical systems, analysis, and topology.",
   keywords: [
     'mathematics',
     'dynamical systems',
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     'Algeria',
     'research',
   ],
-  authors: [{ name: 'Your Name' }],
+  authors: [{ name: 'Abdelouahab Mostafa' }],
   openGraph: {
-    title: 'Your Name — Mathematics Researcher',
+    title: 'Abdelouahab Mostafa — Mathematics Researcher',
     description:
-      "Personal academic website of Your Name, Master's student in Fundamental Mathematics.",
+      "Personal academic website of Abdelouahab Mostafa, Master's student in Fundamental Mathematics.",
     url: 'https://your-site.vercel.app',
-    siteName: 'Your Name',
+    siteName: 'Abdelouahab Mostafa',
     locale: 'en_US',
     type: 'website',
   },
@@ -55,7 +55,7 @@ export default function RootLayout({
         {/* Favicon */}
         <link
           rel="icon"
-          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e3a5f'/><text x='50' y='68' font-family='Georgia,serif' font-size='50' font-weight='bold' fill='%23c9a84c' text-anchor='middle'>YN</text></svg>"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e3a5f'/><text x='50' y='68' font-family='Georgia,serif' font-size='50' font-weight='bold' fill='%23c9a84c' text-anchor='middle'>AM</text></svg>"
           type="image/svg+xml"
         />
       </head>

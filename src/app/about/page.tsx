@@ -13,40 +13,39 @@ export const metadata: Metadata = {
 
 const researchInterests = [
   {
-    title: 'Dynamical Systems',
+    title: 'Closed Form Definite Integrals',
     description:
-      'Studying the long-term behavior of deterministic processes, stability analysis, and bifurcation theory in both continuous and discrete settings.',
+      'Evaluating definite integrals in closed form using advanced techniques such as differentiation under the integral sign, residue calculus, and special function identities.',
+    icon: '∫',
+  },
+  {
+    title: 'Special Functions',
+    description:
+      'Study of classical special functions including the Gamma function, Beta function, hypergeometric functions, and their roles in mathematical analysis and applied mathematics.',
     icon: '🔄',
+  },
+  {
+    title: 'Linear Algebra',
+    description:
+      'Vector spaces, linear transformations, eigenvalue theory, matrix decompositions, and their applications across pure and applied mathematics.',
+    icon: '📐',
   },
   {
     title: 'Advanced Analysis',
     description:
-      'Real and complex analysis, measure theory, functional analysis, and their applications to differential equations and dynamical systems.',
-    icon: '📐',
-  },
-  {
-    title: 'Topology',
-    description:
-      'Point-set topology, topological dynamics, and the interplay between topological properties and dynamical behavior of mathematical systems.',
+      'Real and complex analysis, measure theory, functional analysis, and rigorous foundations of calculus and integration theory.',
     icon: '🔗',
-  },
-  {
-    title: 'Integral Calculus',
-    description:
-      'Advanced integration theory, integral inequalities, and applications to existence and uniqueness theorems in the theory of differential equations.',
-    icon: '∫',
   },
 ];
 
 const skills = [
-  { name: 'LaTeX', level: 95 },
-  { name: 'Mathematica', level: 80 },
-  { name: 'Python', level: 75 },
-  { name: 'MATLAB', level: 70 },
-  { name: 'Mathematical Writing', level: 90 },
-  { name: 'French', level: 95 },
-  { name: 'Arabic', level: 100 },
-  { name: 'English', level: 85 },
+  { name: 'LaTeX', level: 40 },
+  { name: 'Python', level: 10 },
+  { name: 'MATLAB', level: 45 },
+  { name: 'Mathematical Writing', level: 5 },
+  { name: 'English', level: 15 },
+  { name: 'French', level: 35 },
+  { name: 'Arabic', level: 70 },
 ];
 
 export default async function AboutPage() {
@@ -76,9 +75,12 @@ export default async function AboutPage() {
             {/* Photo */}
             <div className="flex-shrink-0 mx-auto md:mx-0">
               <div className="w-48 h-48 rounded-2xl overflow-hidden border-2 border-[var(--color-border)] shadow-lg">
-                <div className="w-full h-full bg-gradient-to-br from-primary-300 to-primary-700 flex items-center justify-center">
-                  <span className="text-4xl font-heading font-bold text-white">YN</span>
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/profile/about-photo.jpg"
+                  alt="About photo"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             {/* Bio */}
