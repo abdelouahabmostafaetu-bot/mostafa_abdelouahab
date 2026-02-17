@@ -7,7 +7,7 @@ import Button from '@/components/ui/Button';
 
 export const metadata: Metadata = {
   title: 'Research',
-  description: 'My publications, research projects, and master\'s thesis.',
+  description: 'My publications, research projects, and master thesis.',
 };
 
 export default function ResearchPage() {
@@ -21,16 +21,16 @@ export default function ResearchPage() {
               Research
             </h1>
             <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">
-              My publications, ongoing projects, and master&apos;s thesis
+              My publications, ongoing projects, and master thesis
             </p>
           </div>
         </ScrollAnimation>
 
-        {/* Master's Thesis */}
+        {/* Master Thesis */}
         <ScrollAnimation delay={100}>
           <section className="mb-16">
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-[var(--color-text)] mb-6">
-              Master&apos;s Thesis (Mémoire)
+              Master Thesis (Mémoire)
             </h2>
             <div className="bg-gradient-to-r from-primary-50 to-accent-50 dark:from-primary-900/30 dark:to-accent-900/30 rounded-xl p-8 border border-primary-200 dark:border-primary-800">
               <div className="flex items-start gap-4">

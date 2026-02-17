@@ -1,10 +1,10 @@
 # About Me
 
-I am a Master's student in **Fundamental Mathematics** at the **University of Mila**, Algeria. My academic journey has been driven by a deep fascination with the elegance and rigor of pure mathematics, particularly in the areas of closed-form definite integrals, special functions, and advanced analysis.
+I am a Master student in **Fundamental Mathematics** at the **University of Mila**, Algeria. My academic journey has been driven by a deep fascination with the elegance and rigor of pure mathematics, particularly in the areas of closed-form definite integrals, special functions, and advanced analysis.
 
 ## My Journey
 
-My love for mathematics began during my early education, where I was captivated by the logical structure of the subject and the elegance of rigorous proofs. This passion led me to pursue a Bachelor's degree in Mathematics at the University of Mila, where I developed a particular fascination with closed-form expressions, infinite series, and definite integrals—especially classical and famous problems in analysis.
+My love for mathematics began during my early education, where I was captivated by the logical structure of the subject and the elegance of rigorous proofs. This passion led me to pursue a Bachelor degree in Mathematics at the University of Mila, where I developed a particular fascination with closed-form expressions, infinite series, and definite integrals—especially classical and famous problems in analysis.
 
 During my undergraduate studies, I built a solid foundation in real and complex analysis, abstract algebra, and differential equations. I became increasingly interested in the search for closed forms of series and integrals, as well as the techniques used to evaluate challenging definite integrals, a theme that naturally evolved into the central focus of my graduate work and independent study.
 

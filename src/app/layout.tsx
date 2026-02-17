@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: '%s | Abdelouahab Mostafa',
   },
   description:
-    "Personal academic website of Abdelouahab Mostafa, Master's student in Fundamental Mathematics at the University of Mila, Algeria. Research in dynamical systems, analysis, and topology.",
+    "Personal academic website of Abdelouahab Mostafa, Master student in Fundamental Mathematics at the University of Mila, Algeria. Research in dynamical systems, analysis, and topology.",
   keywords: [
     'mathematics',
     'dynamical systems',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Abdelouahab Mostafa — Mathematics Researcher',
     description:
-      "Personal academic website of Abdelouahab Mostafa, Master's student in Fundamental Mathematics.",
+      "Personal academic website of Abdelouahab Mostafa, Master student in Fundamental Mathematics.",
     url: 'https://your-site.vercel.app',
     siteName: 'Abdelouahab Mostafa',
     locale: 'en_US',

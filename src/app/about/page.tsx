@@ -11,33 +11,6 @@ export const metadata: Metadata = {
   description: 'Learn more about my academic background, research interests, and skills.',
 };
 
-const researchInterests = [
-  {
-    title: 'Closed Form Definite Integrals',
-    description:
-      'Evaluating definite integrals in closed form using advanced techniques such as differentiation under the integral sign, residue calculus, and special function identities.',
-    icon: '∫',
-  },
-  {
-    title: 'Special Functions',
-    description:
-      'Study of classical special functions including the Gamma function, Beta function, hypergeometric functions, and their roles in mathematical analysis and applied mathematics.',
-    icon: '🔄',
-  },
-  {
-    title: 'Linear Algebra',
-    description:
-      'Vector spaces, linear transformations, eigenvalue theory, matrix decompositions, and their applications across pure and applied mathematics.',
-    icon: '📐',
-  },
-  {
-    title: 'Advanced Analysis',
-    description:
-      'Real and complex analysis, measure theory, functional analysis, and rigorous foundations of calculus and integration theory.',
-    icon: '🔗',
-  },
-];
-
 const skills = [
   { name: 'LaTeX', level: 40 },
   { name: 'Python', level: 10 },
@@ -97,31 +70,6 @@ export default async function AboutPage() {
               Education
             </h2>
             <Timeline items={education} />
-          </section>
-        </ScrollAnimation>
-
-        {/* Research Interests */}
-        <ScrollAnimation delay={300}>
-          <section className="mb-16">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[var(--color-text)] mb-8">
-              Research Interests
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {researchInterests.map((interest, i) => (
-                <div
-                  key={i}
-                  className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-[var(--color-border)] hover:shadow-lg transition-all duration-300"
-                >
-                  <div className="text-3xl mb-3">{interest.icon}</div>
-                  <h3 className="font-heading text-lg font-bold text-[var(--color-text)] mb-2">
-                    {interest.title}
-                  </h3>
-                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                    {interest.description}
-                  </p>
-                </div>
-              ))}
-            </div>
           </section>
         </ScrollAnimation>
 

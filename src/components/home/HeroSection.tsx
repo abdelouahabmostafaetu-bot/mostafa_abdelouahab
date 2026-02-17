@@ -29,7 +29,7 @@ export default function HeroSection() {
           <ScrollAnimation animation="slide-in-right" delay={200}>
             <div className="text-center md:text-left">
               <p className="text-accent-500 font-medium mb-2 tracking-wide uppercase text-sm">
-                Master&apos;s Student in Mathematics
+                Master Student in Mathematics
               </p>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-text)] mb-4">
                 Abdelouahab Mostafa
@@ -45,7 +45,7 @@ export default function HeroSection() {
               {/* About Me */}
               <div className="bg-surface-50 dark:bg-gray-800 rounded-xl p-5 mb-6 border border-[var(--color-border)]">
                 <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                  I am a Master&apos;s student in Fundamental Mathematics at the University of Mila, Algeria.
+                  I am a Master student in Fundamental Mathematics at the University of Mila, Algeria.
                   My mathematical passion lies in the exact evaluation of definite integrals and infinite series
                   — particularly famous and historically significant problems from classical analysis. I spend
                   much of my time investigating techniques such as contour integration, special function identities,

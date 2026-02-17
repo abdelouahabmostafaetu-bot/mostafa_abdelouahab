@@ -14,7 +14,7 @@ export default function Footer() {
               Abdelouahab Mostafa
             </h3>
             <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-              Master&apos;s Student in Fundamental Mathematics at the University of Mila, Algeria.
+              Master Student in Fundamental Mathematics at the University of Mila, Algeria.
               Researching dynamical systems, analysis, and topology.
             </p>
           </div>

@@ -2,7 +2,7 @@
   {
     "title": "On the Stability of Discrete Dynamical Systems in Metric Spaces",
     "authors": ["Abdelouahab Mostafa", "Advisor Name"],
-    "venue": "University of Mila — Master's Thesis",
+    "venue": "University of Mila — Master Thesis",
     "year": 2026,
     "abstract": "We study the stability properties of discrete dynamical systems defined on complete metric spaces. Using fixed-point theorems and Lyapunov-type functions, we establish new sufficient conditions for the asymptotic stability of equilibrium points. Our results generalize classical theorems by relaxing the smoothness requirements on the underlying maps.",
     "pdf": "/files/publications/stability-paper.pdf",

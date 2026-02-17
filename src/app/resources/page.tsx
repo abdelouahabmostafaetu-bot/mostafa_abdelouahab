@@ -17,7 +17,7 @@ const downloadables = [
     category: 'CV',
   },
   {
-    title: 'Master\'s Thesis',
+    title: 'Master Thesis',
     description: 'On the Stability of Discrete Dynamical Systems in Metric Spaces.',
     file: '/files/thesis/memoire.pdf',
     icon: GraduationCap,
