@@ -67,10 +67,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-[var(--color-text)]">Email</h3>
                     <a
-                      href="mailto:your.email@university.dz"
+                      href="mailto:mostafaabdelouahab.etu@centre-univ-mila.dz"
                       className="text-sm text-primary-800 dark:text-primary-300 hover:text-accent-500 transition-colors"
                     >
-                      your.email@university.dz
+                      mostafaabdelouahab.etu@centre-univ-mila.dz
                     </a>
                   </div>
                 </div>
@@ -102,6 +102,25 @@ export default function ContactPage() {
                       University of Mila<br />
                       Mila, Algeria
                     </p>
+                  </div>
+                </div>
+              </Card>
+
+              <Card hover={false}>
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg text-primary-800 dark:text-primary-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-[var(--color-text)]">ResearchGate</h3>
+                    <a
+                      href="https://www.researchgate.net/profile/Mostafa-Abdelouahab?ev=hdr_xprf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary-800 dark:text-primary-300 hover:text-accent-500 transition-colors"
+                    >
+                      Mostafa Abdelouahab
+                    </a>
                   </div>
                 </div>
               </Card>

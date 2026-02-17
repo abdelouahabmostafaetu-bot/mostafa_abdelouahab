@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Linkedin, BookOpen, Github } from 'lucide-react';
+import { Mail, BookOpen, Github } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -51,27 +51,18 @@ export default function Footer() {
             </h3>
             <div className="flex gap-3">
               <a
-                href="mailto:your.email@university.dz"
+                href="mailto:mostafaabdelouahab.etu@centre-univ-mila.dz"
                 className="p-2 rounded-lg bg-white dark:bg-gray-800 text-[var(--color-text-secondary)] hover:text-primary-800 dark:hover:text-primary-300 border border-[var(--color-border)] hover:border-primary-300 transition-all"
                 aria-label="Email"
               >
                 <Mail size={18} />
               </a>
               <a
-                href="https://linkedin.com/in/your-profile"
+                href="https://www.researchgate.net/profile/Mostafa-Abdelouahab?ev=hdr_xprf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-white dark:bg-gray-800 text-[var(--color-text-secondary)] hover:text-primary-800 dark:hover:text-primary-300 border border-[var(--color-border)] hover:border-primary-300 transition-all"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a
-                href="https://scholar.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white dark:bg-gray-800 text-[var(--color-text-secondary)] hover:text-primary-800 dark:hover:text-primary-300 border border-[var(--color-border)] hover:border-primary-300 transition-all"
-                aria-label="Google Scholar"
+                aria-label="ResearchGate"
               >
                 <BookOpen size={18} />
               </a>

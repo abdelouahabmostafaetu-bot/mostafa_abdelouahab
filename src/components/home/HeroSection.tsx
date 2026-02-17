@@ -1,4 +1,4 @@
-import { Mail, Download, Linkedin, BookOpen } from 'lucide-react';
+import { Mail, Download, BookOpen } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import ScrollAnimation from '@/components/ui/ScrollAnimation';
 
@@ -58,7 +58,7 @@ export default function HeroSection() {
                   <Download size={18} />
                   Download CV
                 </Button>
-                <Button href="mailto:your.email@university.dz" variant="outline" size="lg">
+                <Button href="mailto:mostafaabdelouahab.etu@centre-univ-mila.dz" variant="outline" size="lg">
                   <Mail size={18} />
                   Contact Me
                 </Button>
@@ -67,20 +67,11 @@ export default function HeroSection() {
               {/* Social Links */}
               <div className="flex items-center gap-4 mt-5 justify-center md:justify-start">
                 <a
-                  href="https://linkedin.com/in/your-profile"
+                  href="https://www.researchgate.net/profile/Mostafa-Abdelouahab?ev=hdr_xprf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[var(--color-text-secondary)] hover:text-primary-800 dark:hover:text-primary-300 transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={20} />
-                </a>
-                <a
-                  href="https://scholar.google.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[var(--color-text-secondary)] hover:text-primary-800 dark:hover:text-primary-300 transition-colors"
-                  aria-label="Google Scholar"
+                  aria-label="ResearchGate"
                 >
                   <BookOpen size={20} />
                 </a>
