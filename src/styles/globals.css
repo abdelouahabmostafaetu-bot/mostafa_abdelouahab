@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== KaTeX Styles ===== */
+@import 'katex/dist/katex.min.css';
+
+/* ===== Base Styles ===== */
+@layer base {
+  :root {
+    --color-primary: #1e3a5f;
+    --color-accent: #c9a84c;
+    --color-surface: #f5f7fa;
+    --color-bg: #ffffff;
+    --color-text: #1a1a2e;
+    --color-text-secondary: #4a5568;
+    --color-border: #e2e8f0;
+  }
+
+  .dark {
+    --color-primary: #5b8dbf;
+    --color-accent: #d4b863;
+    --color-surface: #1a1f2e;
+    --color-bg: #0f1219;
+    --color-text: #e2e8f0;
+    --color-text-secondary: #a0aec0;
+    --color-border: #2d3748;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* ===== Prose / Article Styles ===== */
+@layer components {
+  .prose-academic {
+    @apply leading-relaxed;
+  }
+
+  .prose-academic h1 {
+    @apply text-3xl font-bold mt-10 mb-4 text-[var(--color-text)];
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .prose-academic h2 {
+    @apply text-2xl font-bold mt-8 mb-3 text-[var(--color-text)];
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .prose-academic h3 {
+    @apply text-xl font-semibold mt-6 mb-2 text-[var(--color-text)];
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .prose-academic p {
+    @apply mb-4 text-[var(--color-text-secondary)] leading-7;
+  }
+
+  .prose-academic a {
+    @apply text-primary-800 dark:text-primary-300 underline underline-offset-2 hover:text-accent-500 transition-colors;
+  }
+
+  .prose-academic ul, .prose-academic ol {
+    @apply mb-4 pl-6 text-[var(--color-text-secondary)];
+  }
+
+  .prose-academic ul {
+    @apply list-disc;
+  }
+
+  .prose-academic ol {
+    @apply list-decimal;
+  }
+
+  .prose-academic li {
+    @apply mb-1 leading-7;
+  }
+
+  .prose-academic blockquote {
+    @apply border-l-4 border-accent-500 pl-4 italic my-4 text-[var(--color-text-secondary)];
+  }
+
+  .prose-academic code {
+    @apply bg-surface-50 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+
+  .prose-academic pre {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+  }
+
+  .prose-academic pre code {
+    @apply bg-transparent p-0;
+  }
+
+  .prose-academic img {
+    @apply rounded-lg my-6 mx-auto;
+  }
+
+  .prose-academic hr {
+    @apply border-[var(--color-border)] my-8;
+  }
+
+  .prose-academic table {
+    @apply w-full border-collapse my-6;
+  }
+
+  .prose-academic th {
+    @apply bg-surface-50 dark:bg-gray-800 px-4 py-2 text-left font-semibold border border-[var(--color-border)];
+  }
+
+  .prose-academic td {
+    @apply px-4 py-2 border border-[var(--color-border)];
+  }
+}
+
+/* ===== Animations ===== */
+@layer utilities {
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== KaTeX Overrides ===== */
+.katex-display {
+  @apply my-6 overflow-x-auto;
+}
+
+.katex {
+  font-size: 1.1em;
+}
+
+/* ===== Scrollbar Styles ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface-50 dark:bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
+
+/* ===== Code Highlighting ===== */
+[data-rehype-pretty-code-figure] pre {
+  @apply border border-[var(--color-border)] !bg-gray-950;
+}
+
+[data-rehype-pretty-code-figure] code {
+  @apply text-sm;
+  counter-reset: line;
+}
+
+[data-rehype-pretty-code-figure] code > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply inline-block w-8 mr-4 text-right text-gray-500;
+}

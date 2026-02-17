@@ -1,0 +1,32 @@
+[
+  {
+    "title": "On the Stability of Discrete Dynamical Systems in Metric Spaces",
+    "authors": ["Your Name", "Advisor Name"],
+    "venue": "University of Mila — Master's Thesis",
+    "year": 2026,
+    "abstract": "We study the stability properties of discrete dynamical systems defined on complete metric spaces. Using fixed-point theorems and Lyapunov-type functions, we establish new sufficient conditions for the asymptotic stability of equilibrium points. Our results generalize classical theorems by relaxing the smoothness requirements on the underlying maps.",
+    "pdf": "/files/publications/stability-paper.pdf",
+    "arxiv": "",
+    "tags": ["dynamical-systems", "stability", "metric-spaces"]
+  },
+  {
+    "title": "A Note on Topological Conjugacy of Expanding Maps on the Circle",
+    "authors": ["Your Name"],
+    "venue": "Student Mathematical Journal",
+    "year": 2025,
+    "abstract": "We present an elementary proof that any two expanding maps of the same degree on the unit circle are topologically conjugate. Our approach uses symbolic dynamics and coding theory, providing a constructive method for building the conjugacy map.",
+    "pdf": "/files/publications/conjugacy-note.pdf",
+    "arxiv": "",
+    "tags": ["dynamical-systems", "topology", "expanding-maps"]
+  },
+  {
+    "title": "Integral Inequalities and Their Applications to Differential Equations",
+    "authors": ["Your Name", "Collaborator Name"],
+    "venue": "Proceedings of the Algerian Mathematics Conference",
+    "year": 2025,
+    "abstract": "We derive several new integral inequalities of Gronwall-Bellman type and demonstrate their utility in establishing existence and uniqueness results for certain classes of ordinary differential equations with discontinuous right-hand sides.",
+    "pdf": "",
+    "arxiv": "",
+    "tags": ["analysis", "integral-inequalities", "differential-equations"]
+  }
+]

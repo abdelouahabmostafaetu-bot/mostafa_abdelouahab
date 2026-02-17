@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Principles of Mathematical Analysis",
+    "author": "Walter Rudin",
+    "cover": "/images/books/rudin-pma.jpg",
+    "category": "Analysis",
+    "rating": 5,
+    "review": "The gold standard for rigorous real analysis. Rudin's concise style demands active reading, but rewards the persistent student with deep understanding. Essential for anyone serious about mathematics."
+  },
+  {
+    "title": "Topology",
+    "author": "James R. Munkres",
+    "cover": "/images/books/munkres-topology.jpg",
+    "category": "Topology",
+    "rating": 5,
+    "review": "The best introduction to point-set and algebraic topology. Munkres writes with exceptional clarity and provides a wealth of examples and exercises. A must-have reference for any mathematics student."
+  },
+  {
+    "title": "An Introduction to Dynamical Systems: Continuous and Discrete",
+    "author": "R. Clark Robinson",
+    "cover": "/images/books/robinson-dynamical.jpg",
+    "category": "Dynamical Systems",
+    "rating": 4,
+    "review": "A well-balanced introduction that covers both continuous and discrete dynamical systems. The book builds intuition through examples before diving into rigorous proofs. Excellent for a first course."
+  },
+  {
+    "title": "Real and Complex Analysis",
+    "author": "Walter Rudin",
+    "cover": "/images/books/rudin-rca.jpg",
+    "category": "Analysis",
+    "rating": 5,
+    "review": "A masterful treatment of measure theory, integration, and complex analysis in one volume. The unified approach is elegant and the problems are challenging but instructive."
+  },
+  {
+    "title": "Ordinary Differential Equations",
+    "author": "Vladimir I. Arnold",
+    "cover": "/images/books/arnold-ode.jpg",
+    "category": "Dynamical Systems",
+    "rating": 5,
+    "review": "Arnold's geometric approach to ODEs is both beautiful and insightful. The book emphasizes understanding over computation, making it a refreshing departure from standard textbooks."
+  },
+  {
+    "title": "Introduction to Topology and Modern Analysis",
+    "author": "George F. Simmons",
+    "cover": "/images/books/simmons-topology.jpg",
+    "category": "Topology",
+    "rating": 4,
+    "review": "A gentle yet rigorous introduction that bridges topology and functional analysis. Simmons's writing style makes abstract concepts accessible. Great for self-study."
+  },
+  {
+    "title": "A First Course in Integration",
+    "author": "Edgar Asplund & Lutz Bungart",
+    "cover": "/images/books/asplund-integration.jpg",
+    "category": "Integral Calculus",
+    "rating": 4,
+    "review": "A clear and methodical treatment of Lebesgue integration theory. The authors build the theory from the ground up with plenty of motivation and concrete examples."
+  },
+  {
+    "title": "Dynamical Systems and Chaos",
+    "author": "Steven H. Strogatz",
+    "cover": "/images/books/strogatz-chaos.jpg",
+    "category": "Dynamical Systems",
+    "rating": 5,
+    "review": "Perhaps the most readable introduction to nonlinear dynamics and chaos theory. Strogatz has a gift for making complex ideas intuitive without sacrificing mathematical rigor."
+  }
+]
