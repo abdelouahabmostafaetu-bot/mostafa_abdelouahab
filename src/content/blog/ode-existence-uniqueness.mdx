@@ -1,0 +1,119 @@
+---
+title: "Ordinary Differential Equations: Existence, Uniqueness, and Qualitative Theory"
+date: "2026-02-08"
+category: "Differential Equations"
+excerpt: "A rigorous introduction to the theory of ordinary differential equations — covering the Picard–Lindelöf theorem, phase portraits, stability analysis, and qualitative methods."
+---
+
+## Introduction
+
+**Ordinary differential equations** (ODEs) are equations involving an unknown function and its derivatives. They are the primary language for modelling continuous dynamical processes in physics, biology, economics, and engineering. In this post, we focus on the **theoretical foundations**: existence, uniqueness, and qualitative behavior of solutions.
+
+## The Initial Value Problem
+
+The fundamental problem: given $f: \mathbb{R} \times \mathbb{R}^n \to \mathbb{R}^n$ and an initial condition $(t_0, y_0)$, find $y: I \to \mathbb{R}^n$ satisfying:
+
+$$
+\begin{cases}
+y'(t) = f(t, y(t)) \\
+y(t_0) = y_0
+\end{cases}
+$$
+
+### Integral Formulation
+
+The IVP is equivalent to the integral equation:
+
+$$
+y(t) = y_0 + \int_{t_0}^{t} f(s, y(s)) \, ds
+$$
+
+This formulation is the key to proving existence.
+
+## The Picard–Lindelöf Theorem
+
+**Theorem.** Let $f: U \to \mathbb{R}^n$ be continuous on an open set $U \ni (t_0, y_0)$ and **Lipschitz continuous** in $y$: there exists $L > 0$ such that:
+
+$$
+\|f(t, y_1) - f(t, y_2)\| \leq L \|y_1 - y_2\|
+$$
+
+for all $(t, y_1), (t, y_2)$ in $U$. Then there exists a unique solution to the IVP on some interval $[t_0 - \delta, t_0 + \delta]$.
+
+### Proof via the Banach Fixed-Point Theorem
+
+Define the operator $T$ on $C([t_0 - \delta, t_0 + \delta], \mathbb{R}^n)$:
+
+$$
+(Ty)(t) = y_0 + \int_{t_0}^{t} f(s, y(s)) \, ds
+$$
+
+For sufficiently small $\delta$, $T$ is a contraction (with constant $k = L\delta < 1$). By the Banach fixed-point theorem, $T$ has a unique fixed point — which is the unique solution.
+
+## The Peano Existence Theorem
+
+If we only assume $f$ is **continuous** (without Lipschitz), we lose uniqueness but retain existence:
+
+**Theorem (Peano, 1890).** If $f$ is continuous on a neighborhood of $(t_0, y_0)$, then the IVP has at least one local solution.
+
+**Counterexample to uniqueness:** $y' = \sqrt{|y|}$, $y(0) = 0$ has infinitely many solutions, including $y(t) = 0$ and $y(t) = \frac{1}{4}t^2$ for $t \geq 0$.
+
+## Linear Systems
+
+For the linear system $y' = A(t)y + g(t)$ with $A(t)$ continuous, solutions exist globally and the solution space has beautiful structure.
+
+### Constant Coefficients
+
+When $A$ is constant, the solution is:
+
+$$
+y(t) = e^{At} y_0 + \int_0^t e^{A(t-s)} g(s) \, ds
+$$
+
+where the **matrix exponential** is:
+
+$$
+e^{At} = \sum_{k=0}^{\infty} \frac{(At)^k}{k!}
+$$
+
+## Phase Portraits and Stability
+
+For the autonomous system $y' = f(y)$ in $\mathbb{R}^2$, the qualitative behavior near an equilibrium $y^* $ (where $f(y^*) = 0$) is determined by the eigenvalues $\lambda_1, \lambda_2$ of the Jacobian $Df(y^*)$:
+
+| Eigenvalues | Classification | Stability |
+|---|---|---|
+| $\lambda_1, \lambda_2 < 0$ | Stable node | Asymptotically stable |
+| $\lambda_1, \lambda_2 > 0$ | Unstable node | Unstable |
+| $\lambda_1 < 0 < \lambda_2$ | Saddle point | Unstable |
+| $\alpha \pm i\beta$, $\alpha < 0$ | Stable spiral | Asymptotically stable |
+| $\alpha \pm i\beta$, $\alpha > 0$ | Unstable spiral | Unstable |
+| $\pm i\beta$ | Center | Stable (not asymptotically) |
+
+## Lyapunov Stability Theory
+
+A more general approach to stability uses **Lyapunov functions**:
+
+**Theorem (Lyapunov).** Let $y^*$ be an equilibrium. If there exists a continuously differentiable function $V: U \to \mathbb{R}$ such that:
+1. $V(y^*) = 0$ and $V(y) > 0$ for $y \neq y^*$
+2. $\dot{V}(y) = \nabla V \cdot f(y) \leq 0$
+
+then $y^*$ is **stable**. If $\dot{V}(y) < 0$ for $y \neq y^*$, then $y^*$ is **asymptotically stable**.
+
+The function $V$ acts as a generalized "energy" that doesn't increase along solutions.
+
+## Key Takeaways
+
+1. The **Picard–Lindelöf theorem** provides existence and uniqueness under a Lipschitz condition — proved elegantly via the Banach fixed-point theorem.
+2. **Continuity alone** gives existence but not uniqueness (Peano's theorem).
+3. **Phase portraits** and **eigenvalue analysis** characterize behavior near equilibria.
+4. **Lyapunov theory** provides a powerful, coordinate-free approach to stability without solving the equation.
+
+## Further Reading
+
+- Hirsch, Smale & Devaney, *Differential Equations, Dynamical Systems, and an Introduction to Chaos*
+- Coddington & Levinson, *Theory of Ordinary Differential Equations*
+- Teschl, *Ordinary Differential Equations and Dynamical Systems*
+
+---
+
+*Differential equations are the language in which the laws of nature are written — and their theory is a triumph of mathematical analysis.*

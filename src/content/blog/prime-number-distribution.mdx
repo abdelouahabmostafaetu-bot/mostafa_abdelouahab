@@ -1,0 +1,134 @@
+---
+title: "The Distribution of Prime Numbers: From Euclid to the Prime Number Theorem"
+date: "2026-02-05"
+category: "Number Theory"
+excerpt: "A journey through the distribution of primes — from Euclid's ancient proof of their infinitude to the celebrated Prime Number Theorem and its analytic proof."
+---
+
+## Introduction
+
+Prime numbers are the atoms of arithmetic. Understanding their distribution among the natural numbers has been a central question in mathematics for over two millennia. In this post, we trace the story from **Euclid's proof** of the infinitude of primes to the **Prime Number Theorem**, one of the crowning achievements of 19th-century mathematics.
+
+## Euclid's Theorem (c. 300 BCE)
+
+**Theorem.** There are infinitely many prime numbers.
+
+**Proof.** Suppose there are finitely many primes $p_1, p_2, \ldots, p_n$. Consider:
+
+$$
+N = p_1 p_2 \cdots p_n + 1
+$$
+
+$N$ is not divisible by any $p_i$ (it leaves remainder $1$). So either $N$ is prime, or it has a prime factor not in our list. Either way, we have a contradiction. $\blacksquare$
+
+This proof is one of the most beautiful arguments in all of mathematics — simple, elegant, and definitive.
+
+## How Sparse Are the Primes?
+
+Let $\pi(x) = \#\{p \leq x : p \text{ prime}\}$ be the **prime counting function**.
+
+| $x$ | $\pi(x)$ | $x / \ln x$ | Ratio |
+|---|---|---|---|
+| $10^3$ | $168$ | $145$ | $1.16$ |
+| $10^6$ | $78{,}498$ | $72{,}382$ | $1.08$ |
+| $10^9$ | $50{,}847{,}534$ | $48{,}254{,}942$ | $1.05$ |
+| $10^{12}$ | $37{,}607{,}912{,}018$ | $36{,}191{,}206{,}825$ | $1.04$ |
+
+The data suggests that $\pi(x) \approx x/\ln x$.
+
+## The Prime Number Theorem
+
+**Theorem (Hadamard, de la Vallée-Poussin, 1896).**
+
+$$
+\pi(x) \sim \frac{x}{\ln x} \quad \text{as } x \to \infty
+$$
+
+Equivalently, $\lim_{x \to \infty} \frac{\pi(x)}{x/\ln x} = 1$.
+
+A more precise approximation uses the **logarithmic integral**:
+
+$$
+\pi(x) \sim \text{Li}(x) = \int_2^{x} \frac{dt}{\ln t}
+$$
+
+### Probabilistic Interpretation
+
+The PNT says that the "probability" of a random integer near $x$ being prime is approximately $1/\ln x$. Or equivalently, the average gap between consecutive primes near $x$ is about $\ln x$.
+
+## Chebyshev's Contributions
+
+Before the PNT was proved, **Chebyshev** (1850) made significant progress using the **Chebyshev functions**:
+
+$$
+\theta(x) = \sum_{p \leq x} \ln p, \quad \psi(x) = \sum_{p^k \leq x} \ln p
+$$
+
+He proved that there exist constants $A, B > 0$ such that:
+
+$$
+A \frac{x}{\ln x} \leq \pi(x) \leq B \frac{x}{\ln x}
+$$
+
+and showed that **if** $\pi(x)/(x/\ln x)$ has a limit, it must be $1$.
+
+## Euler's Product and the Proof Strategy
+
+The key to the analytic proof is the connection between primes and the **Riemann zeta function** via the Euler product:
+
+$$
+\zeta(s) = \prod_{p} \frac{1}{1 - p^{-s}} = \sum_{n=1}^{\infty} n^{-s}
+$$
+
+Taking logarithms: $\ln \zeta(s) = -\sum_p \ln(1 - p^{-s}) = \sum_p \sum_{k=1}^{\infty} \frac{p^{-ks}}{k}$.
+
+The proof of the PNT (both by Hadamard and de la Vallée-Poussin independently) relies on showing that **$\zeta(s)$ has no zeros on the line $\text{Re}(s) = 1$**.
+
+The crucial estimate:
+
+$$
+\zeta(1 + it) \neq 0 \quad \text{for all } t \in \mathbb{R}
+$$
+
+is proved using the clever inequality:
+
+$$
+\zeta(\sigma)^3 |\zeta(\sigma + it)|^4 |\zeta(\sigma + 2it)| \geq 1
+$$
+
+for $\sigma > 1$, which follows from $3 + 4\cos\theta + \cos 2\theta \geq 0$.
+
+## Dirichlet's Theorem on Primes in Arithmetic Progressions
+
+**Theorem (Dirichlet, 1837).** If $\gcd(a, q) = 1$, then there are infinitely many primes $p \equiv a \pmod{q}$.
+
+Moreover, the primes are **equidistributed** among the admissible residue classes:
+
+$$
+\pi(x; q, a) \sim \frac{1}{\varphi(q)} \frac{x}{\ln x}
+$$
+
+where $\varphi$ is Euler's totient function.
+
+## Open Problems
+
+1. **Twin Prime Conjecture:** Are there infinitely many primes $p$ with $p + 2$ also prime?
+2. **Goldbach's Conjecture:** Is every even integer $> 2$ the sum of two primes?
+3. **Riemann Hypothesis:** Do all non-trivial zeros of $\zeta(s)$ lie on $\text{Re}(s) = 1/2$?
+
+## Key Takeaways
+
+1. Primes become **sparser** but never run out — Euclid's theorem was just the beginning.
+2. The **Prime Number Theorem** gives a precise asymptotic formula: $\pi(x) \sim x/\ln x$.
+3. The proof is **analytic** — it uses complex analysis and the zeta function to prove a statement about integers.
+4. The distribution of primes is one of the deepest and most active areas of mathematical research.
+
+## Further Reading
+
+- Hardy & Wright, *An Introduction to the Theory of Numbers*
+- Iwaniec & Kowalski, *Analytic Number Theory*
+- Tao, *Structure and Randomness* (blog posts on prime gaps)
+
+---
+
+*The primes are the most mysterious objects in mathematics — simple to define, yet endlessly deep in their behavior.*

@@ -1,0 +1,108 @@
+---
+title: "Topology of Metric Spaces: From Open Sets to Compactness"
+date: "2026-02-18"
+category: "Topology"
+excerpt: "A comprehensive journey through the topology of metric spaces — covering open and closed sets, convergence, completeness, compactness, and connectedness with rigorous proofs and examples."
+---
+
+## Introduction
+
+Metric spaces provide the natural setting for analysis. They generalize the notion of distance from $\mathbb{R}^n$ to abstract spaces, allowing us to discuss convergence, continuity, and compactness in a unified framework. In this post, we develop the topology of metric spaces from the ground up.
+
+## Definitions and First Properties
+
+A **metric space** is a pair $(X, d)$ where $X$ is a set and $d: X \times X \to [0, \infty)$ satisfies:
+
+1. **Positive definiteness:** $d(x, y) = 0 \iff x = y$
+2. **Symmetry:** $d(x, y) = d(y, x)$
+3. **Triangle inequality:** $d(x, z) \leq d(x, y) + d(y, z)$
+
+### Fundamental Examples
+
+| Space | Metric |
+|---|---|
+| $\mathbb{R}^n$ | $d(x,y) = \sqrt{\sum (x_i - y_i)^2}$ |
+| $C([a,b])$ | $d(f,g) = \sup_{x \in [a,b]} \|f(x) - g(x)\|$ |
+| $\ell^p$ | $d(x,y) = \left(\sum \|x_n - y_n\|^p\right)^{1/p}$ |
+| Discrete | $d(x,y) = \begin{cases} 0 & x=y \\ 1 & x \neq y \end{cases}$ |
+
+## Open and Closed Sets
+
+The **open ball** of radius $r > 0$ centered at $x$ is:
+
+$$
+B(x, r) = \{y \in X : d(x, y) < r\}
+$$
+
+A set $U \subseteq X$ is **open** if for every $x \in U$, there exists $r > 0$ such that $B(x, r) \subseteq U$.
+
+**Proposition.** The collection $\tau$ of open sets in $(X, d)$ satisfies the axioms of a topology:
+1. $\emptyset$ and $X$ are open.
+2. Arbitrary unions of open sets are open.
+3. Finite intersections of open sets are open.
+
+A set $F$ is **closed** if its complement $X \setminus F$ is open, or equivalently, if it contains all its limit points.
+
+## Convergence and Completeness
+
+A sequence $(x_n)$ in $(X, d)$ **converges** to $x$ if $d(x_n, x) \to 0$.
+
+A sequence is **Cauchy** if for every $\varepsilon > 0$, there exists $N$ such that:
+
+$$
+m, n \geq N \implies d(x_m, x_n) < \varepsilon
+$$
+
+A metric space is **complete** if every Cauchy sequence converges.
+
+**Key fact:** Every convergent sequence is Cauchy, but the converse fails in general. For example, $\mathbb{Q}$ with the standard metric is not complete — the sequence of partial sums of $e = \sum 1/n!$ is Cauchy in $\mathbb{Q}$ but does not converge in $\mathbb{Q}$.
+
+## Compactness
+
+A metric space $X$ is **compact** if every open cover has a finite subcover. In metric spaces, compactness is equivalent to several other conditions:
+
+**Theorem.** For a metric space $(X, d)$, the following are equivalent:
+1. $X$ is compact.
+2. $X$ is **sequentially compact**: every sequence has a convergent subsequence.
+3. $X$ is **complete** and **totally bounded**.
+
+A set $A$ is **totally bounded** if for every $\varepsilon > 0$, $A$ can be covered by finitely many balls of radius $\varepsilon$.
+
+### The Heine–Borel Theorem
+
+In $\mathbb{R}^n$, compactness takes a particularly clean form:
+
+$$
+A \subseteq \mathbb{R}^n \text{ is compact} \iff A \text{ is closed and bounded}
+$$
+
+**Warning:** This equivalence fails in infinite-dimensional spaces. The closed unit ball in $\ell^2$ is closed and bounded but **not** compact.
+
+## Connectedness
+
+A metric space $X$ is **connected** if it cannot be written as a disjoint union of two nonempty open sets. Equivalently, $X$ is connected if the only subsets that are both open and closed are $\emptyset$ and $X$.
+
+**Path connectedness** is a stronger property: $X$ is path connected if for any $x, y \in X$, there exists a continuous path $\gamma: [0,1] \to X$ with $\gamma(0) = x$ and $\gamma(1) = y$.
+
+$$
+\text{Path connected} \implies \text{Connected}
+$$
+
+The converse is false in general (the topologist's sine curve is a classical counterexample).
+
+## Key Takeaways
+
+1. Metric spaces provide the **minimal structure** needed to discuss convergence and continuity rigorously.
+2. **Completeness** is about Cauchy sequences converging — it's essential for the Banach fixed-point theorem and many existence results.
+3. **Compactness** is the topological replacement for finiteness — it allows us to extract finite information from infinite situations.
+4. These concepts extend naturally to **topological spaces**, but metric spaces remain the most important source of intuition.
+
+## Further Reading
+
+- Munkres, *Topology*, Chapters 2–3
+- Rudin, *Principles of Mathematical Analysis*, Chapters 2–3
+- Sutherland, *Introduction to Metric and Topological Spaces*
+
+---
+
+*Understanding metric spaces deeply is like having a master key — it opens doors across all of analysis, topology, and geometry.*

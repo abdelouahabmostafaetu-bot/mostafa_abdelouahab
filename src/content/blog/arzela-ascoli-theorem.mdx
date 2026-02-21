@@ -1,0 +1,114 @@
+---
+title: "The Arzelà–Ascoli Theorem: Compactness in Function Spaces"
+date: "2026-01-26"
+category: "Analysis"
+excerpt: "A detailed treatment of the Arzelà–Ascoli theorem — the fundamental compactness criterion for function spaces, with proof and applications to differential equations."
+---
+
+## Introduction
+
+In finite dimensions, the **Bolzano–Weierstrass theorem** tells us that bounded sequences have convergent subsequences. In infinite-dimensional function spaces, boundedness alone is not enough — we need an additional condition called **equicontinuity**. The **Arzelà–Ascoli theorem** provides the precise characterization of compact subsets of $C(K)$.
+
+## The Setting
+
+Let $K$ be a compact metric space and $C(K)$ the space of continuous real-valued functions on $K$ with the supremum norm:
+
+$$
+\|f\|_\infty = \max_{x \in K} |f(x)|
+$$
+
+$C(K)$ is a Banach space — complete and infinite-dimensional.
+
+## Key Definitions
+
+A family $\mathcal{F} \subseteq C(K)$ is:
+
+**Uniformly bounded** if there exists $M > 0$ such that:
+
+$$
+|f(x)| \leq M \quad \forall f \in \mathcal{F}, \; \forall x \in K
+$$
+
+**Equicontinuous** at $x_0 \in K$ if for every $\varepsilon > 0$, there exists $\delta > 0$ such that:
+
+$$
+d(x, x_0) < \delta \implies |f(x) - f(x_0)| < \varepsilon \quad \forall f \in \mathcal{F}
+$$
+
+The key point: the same $\delta$ works for **all** functions in the family simultaneously.
+
+$\mathcal{F}$ is **equicontinuous** if it is equicontinuous at every point.
+
+## The Theorem
+
+**Theorem (Arzelà–Ascoli).** Let $K$ be a compact metric space. A subset $\mathcal{F} \subseteq C(K)$ is **relatively compact** (its closure is compact) if and only if $\mathcal{F}$ is:
+
+1. **Uniformly bounded**, and
+2. **Equicontinuous**
+
+Equivalently, every sequence in $\mathcal{F}$ has a **uniformly convergent** subsequence.
+
+## Proof Sketch
+
+### Necessity
+
+If $\overline{\mathcal{F}}$ is compact, then it is totally bounded, which implies uniform boundedness. Equicontinuity follows from compactness and uniform continuity on $K$.
+
+### Sufficiency (the important direction)
+
+Let $(f_n)$ be a sequence in $\mathcal{F}$.
+
+**Step 1.** Let $\{x_1, x_2, \ldots\}$ be a countable dense subset of $K$ (exists since $K$ is compact, hence separable).
+
+**Step 2.** The sequence $(f_n(x_1))$ is bounded, so by BW, it has a convergent subsequence $(f_{n_k^{(1)}}(x_1))$.
+
+**Step 3.** From this subsequence, extract a further subsequence converging at $x_2$. Continue diagonally.
+
+**Step 4. (Diagonal argument)** The diagonal subsequence $g_k = f_{n_k^{(k)}}$ converges at every $x_j$.
+
+**Step 5.** Use equicontinuity to promote pointwise convergence on a dense set to **uniform convergence** on all of $K$:
+
+For any $\varepsilon > 0$, cover $K$ by finitely many balls of radius $\delta$ (equicontinuity). On each ball, $|g_m(x) - g_n(x)|$ is controlled by the value at the center (a dense point) plus $2\varepsilon$ from equicontinuity. $\blacksquare$
+
+## Why Equicontinuity Is Necessary
+
+Consider $f_n(x) = \sin(nx)$ on $[0, 2\pi]$. This family is uniformly bounded ($|f_n| \leq 1$) but **not equicontinuous**: at $x = 0$, $f_n(\pi/(2n)) = 1$ but $\pi/(2n) \to 0$.
+
+Indeed, $(f_n)$ has **no uniformly convergent subsequence** — confirming that boundedness alone is insufficient.
+
+## Application: Peano's Existence Theorem
+
+**Theorem (Peano).** If $f(t, y)$ is continuous on a neighborhood of $(t_0, y_0)$, then $y' = f(t, y)$, $y(t_0) = y_0$ has at least one solution.
+
+**Proof idea:** Construct approximate solutions $y_n$ (e.g., Euler polygons). Show they are:
+1. **Uniformly bounded** (using bounds on $f$)
+2. **Equicontinuous** (since $|y_n'| \leq M$, the family is Lipschitz with the same constant)
+
+By Arzelà–Ascoli, extract a uniformly convergent subsequence. The limit is a solution. $\blacksquare$
+
+## Application: Compact Operators
+
+An operator $T: X \to Y$ between Banach spaces is **compact** if it maps bounded sets to relatively compact sets. By Arzelà–Ascoli, integral operators of the form:
+
+$$
+(Tf)(x) = \int_K G(x, y) f(y) \, dy
+$$
+
+are compact on $C(K)$ when the kernel $G$ is continuous — a key fact in the theory of integral equations and the Fredholm alternative.
+
+## Key Takeaways
+
+1. Arzelà–Ascoli characterizes compactness in $C(K)$: **uniform boundedness + equicontinuity**.
+2. It replaces the Bolzano–Weierstrass theorem in the infinite-dimensional setting.
+3. The proof uses the **diagonal argument** — a technique that appears throughout analysis.
+4. Applications include **existence theorems** for ODEs and the theory of **compact operators**.
+
+## Further Reading
+
+- Rudin, *Principles of Mathematical Analysis*, Chapter 7
+- Brezis, *Functional Analysis*, Chapter 4
+- Munkres, *Topology*, §45
+
+---
+
+*The Arzelà–Ascoli theorem tells us exactly what it takes to tame infinity — in function spaces, equicontinuity is the price of compactness.*

@@ -1,0 +1,130 @@
+---
+title: "Measure Theory: Building the Foundations of Modern Analysis"
+date: "2026-02-16"
+category: "Analysis"
+excerpt: "An introduction to measure theory — from sigma-algebras and measurable functions to the Lebesgue measure, laying the rigorous foundation for integration and probability."
+---
+
+## Introduction
+
+**Measure theory** provides the rigorous foundation for modern analysis, probability theory, and many areas of applied mathematics. It arose from the need to extend the notion of "length" and "area" to more general sets, and to develop an integration theory more powerful than the Riemann integral.
+
+## Why Measure Theory?
+
+The Riemann integral has fundamental limitations:
+
+1. The characteristic function $\chi_{\mathbb{Q} \cap [0,1]}$ of the rationals in $[0,1]$ is **not Riemann integrable**.
+2. Pointwise limits of Riemann integrable functions may not be Riemann integrable.
+3. We cannot easily integrate over complicated sets.
+
+Measure theory, and the Lebesgue integral built upon it, resolves all these issues.
+
+## Sigma-Algebras
+
+A **$\sigma$-algebra** $\mathcal{F}$ on a set $X$ is a collection of subsets satisfying:
+
+1. $X \in \mathcal{F}$
+2. If $A \in \mathcal{F}$, then $A^c \in \mathcal{F}$ (closed under complements)
+3. If $A_1, A_2, \ldots \in \mathcal{F}$, then $\bigcup_{n=1}^{\infty} A_n \in \mathcal{F}$ (closed under countable unions)
+
+The pair $(X, \mathcal{F})$ is called a **measurable space**, and elements of $\mathcal{F}$ are **measurable sets**.
+
+**The Borel $\sigma$-algebra** $\mathcal{B}(\mathbb{R})$ is the smallest $\sigma$-algebra containing all open sets of $\mathbb{R}$.
+
+## Measures
+
+A **measure** on $(X, \mathcal{F})$ is a function $\mu: \mathcal{F} \to [0, \infty]$ satisfying:
+
+1. $\mu(\emptyset) = 0$
+2. **Countable additivity:** For disjoint sets $A_1, A_2, \ldots \in \mathcal{F}$:
+
+$$
+\mu\left(\bigcup_{n=1}^{\infty} A_n\right) = \sum_{n=1}^{\infty} \mu(A_n)
+$$
+
+The triple $(X, \mathcal{F}, \mu)$ is a **measure space**.
+
+### Important Properties
+
+From the axioms, we can derive:
+
+- **Monotonicity:** $A \subseteq B \implies \mu(A) \leq \mu(B)$
+- **Subadditivity:** $\mu\left(\bigcup A_n\right) \leq \sum \mu(A_n)$
+- **Continuity from below:** If $A_n \uparrow A$, then $\mu(A_n) \uparrow \mu(A)$
+- **Continuity from above:** If $A_n \downarrow A$ and $\mu(A_1) < \infty$, then $\mu(A_n) \downarrow \mu(A)$
+
+## The Lebesgue Measure
+
+The **Lebesgue measure** $\lambda$ on $\mathbb{R}$ is the unique complete measure on $\mathcal{B}(\mathbb{R})$ such that:
+
+$$
+\lambda([a, b]) = b - a
+$$
+
+for every interval $[a,b]$. It extends the notion of "length" to a vast class of sets — the **Lebesgue measurable sets**.
+
+### Construction via Outer Measure
+
+Define the **Lebesgue outer measure** for any $A \subseteq \mathbb{R}$:
+
+$$
+\lambda^*(A) = \inf\left\{\sum_{n=1}^{\infty} (b_n - a_n) : A \subseteq \bigcup_{n=1}^{\infty} (a_n, b_n)\right\}
+$$
+
+A set $A$ is **Lebesgue measurable** if for every $E \subseteq \mathbb{R}$:
+
+$$
+\lambda^*(E) = \lambda^*(E \cap A) + \lambda^*(E \cap A^c)
+$$
+
+This is the **Carathéodory criterion**.
+
+## Measurable Functions
+
+A function $f: X \to \mathbb{R}$ is **measurable** (with respect to $\mathcal{F}$) if:
+
+$$
+f^{-1}((-\infty, a]) = \{x \in X : f(x) \leq a\} \in \mathcal{F} \quad \forall\, a \in \mathbb{R}
+$$
+
+**Key properties:**
+- Continuous functions are Borel measurable.
+- Sums, products, and pointwise limits of measurable functions are measurable.
+- $\sup_n f_n$, $\inf_n f_n$, $\limsup_n f_n$, $\liminf_n f_n$ of measurable functions are measurable.
+
+## The Lebesgue Integral
+
+For a non-negative measurable function $f$, we define:
+
+$$
+\int_X f \, d\mu = \sup\left\{\int_X s \, d\mu : 0 \leq s \leq f, \, s \text{ simple}\right\}
+$$
+
+where a **simple function** is $s = \sum_{i=1}^{n} c_i \chi_{A_i}$ and $\int s \, d\mu = \sum c_i \mu(A_i)$.
+
+### The Dominated Convergence Theorem
+
+The most important convergence theorem in analysis:
+
+**Theorem (Lebesgue).** If $f_n \to f$ pointwise a.e. and $|f_n| \leq g$ for some $g \in L^1(\mu)$, then:
+
+$$
+\lim_{n \to \infty} \int_X f_n \, d\mu = \int_X f \, d\mu
+$$
+
+## Key Takeaways
+
+1. **$\sigma$-algebras** formalize which sets we can measure; **measures** assign sizes to these sets.
+2. The **Lebesgue measure** extends the concept of length while being translation-invariant and countably additive.
+3. The **Lebesgue integral** handles more functions and has much better convergence properties than the Riemann integral.
+4. Measure theory is the language of **modern probability**: a probability space is simply a measure space with total measure $1$.
+
+## Further Reading
+
+- Stein & Shakarchi, *Real Analysis: Measure Theory, Integration, and Hilbert Spaces*
+- Folland, *Real Analysis*
+- Halmos, *Measure Theory*
+
+---
+
+*Measure theory is the grammar of modern analysis — once learned, the entire language of mathematics becomes more expressive and precise.*

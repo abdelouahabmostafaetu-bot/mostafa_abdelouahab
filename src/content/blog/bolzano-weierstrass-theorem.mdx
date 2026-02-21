@@ -1,0 +1,91 @@
+---
+title: "The Bolzano–Weierstrass Theorem and Its Far-Reaching Consequences"
+date: "2026-01-30"
+category: "Analysis"
+excerpt: "A deep study of the Bolzano–Weierstrass theorem — why every bounded sequence has a convergent subsequence, and how this fundamental result underpins compactness and analysis."
+---
+
+## Introduction
+
+The **Bolzano–Weierstrass theorem** is one of the cornerstones of real analysis. It states a simple but profound fact: every bounded sequence in $\mathbb{R}^n$ has a convergent subsequence. This theorem is the engine behind many existence results in analysis, optimization, and applied mathematics.
+
+## Statement and Proof
+
+**Theorem (Bolzano–Weierstrass).** Every bounded sequence $(a_n)$ in $\mathbb{R}$ has a convergent subsequence.
+
+**Proof (bisection method).** Since $(a_n)$ is bounded, there exist $\alpha_0, \beta_0$ with $a_n \in [\alpha_0, \beta_0]$ for all $n$.
+
+**Step 1.** Bisect $[\alpha_0, \beta_0]$ into two halves. At least one half contains infinitely many terms of $(a_n)$. Call this half $[\alpha_1, \beta_1]$ and pick $a_{n_1} \in [\alpha_1, \beta_1]$.
+
+**Step 2.** Bisect $[\alpha_1, \beta_1]$ and repeat: choose $[\alpha_2, \beta_2]$ containing infinitely many terms, and pick $a_{n_2}$ with $n_2 > n_1$.
+
+**Continue:** We obtain nested intervals $[\alpha_k, \beta_k]$ with $\beta_k - \alpha_k = (\beta_0 - \alpha_0)/2^k \to 0$ and a subsequence $a_{n_k} \in [\alpha_k, \beta_k]$.
+
+By the **Nested Intervals Property**, $\bigcap_{k=0}^{\infty} [\alpha_k, \beta_k] = \{L\}$ for some $L \in \mathbb{R}$.
+
+Since $a_{n_k} \in [\alpha_k, \beta_k]$ and the interval lengths tend to $0$, we have $a_{n_k} \to L$. $\blacksquare$
+
+## Extension to $\mathbb{R}^n$
+
+**Theorem.** Every bounded sequence in $\mathbb{R}^n$ has a convergent subsequence.
+
+**Proof.** Apply the one-dimensional result component by component. From $(x_n)$, extract a subsequence where the first component converges, then a sub-subsequence where the second component also converges, and so on. After $n$ extractions, all components converge. $\blacksquare$
+
+## Equivalent Formulations of Completeness
+
+The Bolzano–Weierstrass theorem is equivalent to several other fundamental properties of $\mathbb{R}$:
+
+$$
+\text{BW} \iff \text{LUB} \iff \text{MCT} \iff \text{NIP} \iff \text{Cauchy completeness}
+$$
+
+where:
+- **LUB:** Least Upper Bound Property
+- **MCT:** Monotone Convergence Theorem (for sequences)
+- **NIP:** Nested Intervals Property
+- **Cauchy:** Every Cauchy sequence converges
+
+Each captures a different facet of the completeness of $\mathbb{R}$.
+
+## Consequences
+
+### 1. The Extreme Value Theorem
+
+**Theorem.** A continuous function $f: [a,b] \to \mathbb{R}$ attains its maximum.
+
+**Proof.** Let $M = \sup\{f(x) : x \in [a,b]\}$. Choose $(x_n)$ with $f(x_n) \to M$. By BW, there's a convergent subsequence $x_{n_k} \to c \in [a,b]$ (since $[a,b]$ is closed). By continuity, $f(c) = M$. $\blacksquare$
+
+### 2. Sequential Compactness
+
+In $\mathbb{R}^n$: a set $K$ is compact $\iff$ $K$ is closed and bounded $\iff$ every sequence in $K$ has a subsequence converging in $K$.
+
+The Bolzano–Weierstrass theorem is precisely the statement that **closed bounded sets in $\mathbb{R}^n$ are sequentially compact**.
+
+### 3. Uniform Continuity (Heine's Theorem)
+
+**Theorem.** If $f: [a,b] \to \mathbb{R}$ is continuous, then $f$ is uniformly continuous.
+
+**Proof.** Suppose not. Then there exist $\varepsilon_0 > 0$ and sequences $x_n, y_n$ with $|x_n - y_n| < 1/n$ but $|f(x_n) - f(y_n)| \geq \varepsilon_0$. By BW, extract convergent subsequences $x_{n_k} \to c$, $y_{n_k} \to c$. By continuity, $|f(x_{n_k}) - f(y_{n_k})| \to 0$, contradicting $\geq \varepsilon_0$. $\blacksquare$
+
+## Why BW Fails in Infinite Dimensions
+
+Consider $\ell^2$ with the standard orthonormal sequence $e_n = (0, \ldots, 0, 1, 0, \ldots)$. This sequence is bounded ($\|e_n\| = 1$ for all $n$) but has **no convergent subsequence** since $\|e_m - e_n\| = \sqrt{2}$ for $m \neq n$.
+
+This failure is why **compactness in infinite dimensions** requires additional conditions beyond closed and bounded — leading to the Arzelà–Ascoli theorem and weak compactness.
+
+## Key Takeaways
+
+1. The BW theorem condenses **infinitely many points** in a bounded set into a convergent subsequence.
+2. It is **equivalent** to the completeness of $\mathbb{R}$ — all roads lead to the same fundamental property.
+3. BW is the key tool behind the **Extreme Value Theorem**, **Heine's Theorem**, and many existence results.
+4. The failure of BW in infinite dimensions motivates much of functional analysis.
+
+## Further Reading
+
+- Abbott, *Understanding Analysis*, Chapters 2–4
+- Rudin, *Principles of Mathematical Analysis*, Chapter 2
+- Bartle & Sherbert, *Introduction to Real Analysis*
+
+---
+
+*The Bolzano–Weierstrass theorem is analysis at its most fundamental — extracting convergence from boundedness, order from chaos.*

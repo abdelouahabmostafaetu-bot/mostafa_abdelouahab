@@ -1,0 +1,147 @@
+---
+title: "Linear Algebra: Eigenvalues, Eigenvectors, and the Spectral Theorem"
+date: "2026-02-01"
+category: "Algebra"
+excerpt: "A deep dive into eigenvalues and eigenvectors — their computation, geometric meaning, and the powerful Spectral Theorem that diagonalizes symmetric matrices."
+---
+
+## Introduction
+
+**Eigenvalues and eigenvectors** are among the most important concepts in all of mathematics. They appear in dynamical systems (stability analysis), quantum mechanics (observables), statistics (PCA), differential equations, and graph theory. Understanding them deeply is essential for any mathematician.
+
+## Definitions
+
+Let $A$ be an $n \times n$ matrix over $\mathbb{F}$ (where $\mathbb{F} = \mathbb{R}$ or $\mathbb{C}$). A scalar $\lambda \in \mathbb{F}$ is an **eigenvalue** of $A$ if there exists a nonzero vector $v$ such that:
+
+$$
+Av = \lambda v
+$$
+
+The vector $v$ is the corresponding **eigenvector**. The set of all eigenvectors for $\lambda$ (plus $0$) is the **eigenspace** $E_\lambda = \ker(A - \lambda I)$.
+
+## The Characteristic Polynomial
+
+Eigenvalues are the roots of the **characteristic polynomial**:
+
+$$
+p_A(\lambda) = \det(A - \lambda I)
+$$
+
+This is a polynomial of degree $n$ in $\lambda$.
+
+### Example
+
+For $A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}$:
+
+$$
+p_A(\lambda) = (4-\lambda)(3-\lambda) - 2 = \lambda^2 - 7\lambda + 10 = (\lambda - 5)(\lambda - 2)
+$$
+
+Eigenvalues: $\lambda_1 = 5$, $\lambda_2 = 2$.
+
+For $\lambda_1 = 5$: $(A - 5I)v = 0$ gives $v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.
+
+For $\lambda_2 = 2$: $(A - 2I)v = 0$ gives $v_2 = \begin{pmatrix} 1 \\ -2 \end{pmatrix}$.
+
+## Diagonalization
+
+A matrix $A$ is **diagonalizable** if there exists an invertible matrix $P$ such that:
+
+$$
+A = PDP^{-1}, \quad D = \text{diag}(\lambda_1, \ldots, \lambda_n)
+$$
+
+where the columns of $P$ are the eigenvectors. This requires $A$ to have $n$ linearly independent eigenvectors.
+
+**Power formula:** $A^k = PD^kP^{-1}$, making computation of matrix powers trivial.
+
+## The Spectral Theorem
+
+The most beautiful result about eigenvalues:
+
+**Theorem (Spectral Theorem for Real Symmetric Matrices).** If $A \in \mathbb{R}^{n \times n}$ is symmetric ($A = A^T$), then:
+
+1. All eigenvalues of $A$ are **real**.
+2. Eigenvectors corresponding to distinct eigenvalues are **orthogonal**.
+3. $A$ is **orthogonally diagonalizable**: $A = QDQ^T$ where $Q$ is orthogonal ($Q^TQ = I$).
+
+### Proof of (1): Eigenvalues are Real
+
+Let $Av = \lambda v$ with $v \neq 0$. Then:
+
+$$
+\lambda \|v\|^2 = \lambda \bar{v}^T v = \bar{v}^T (\lambda v) = \bar{v}^T A v
+$$
+
+Since $A = A^T$:
+
+$$
+\bar{\lambda} \|v\|^2 = \overline{\bar{v}^T A v} = v^T A^T \bar{v} = v^T A \bar{v} = \bar{v}^T A v = \lambda \|v\|^2
+$$
+
+Therefore $\lambda = \bar{\lambda}$, so $\lambda \in \mathbb{R}$. $\blacksquare$
+
+## Quadratic Forms and Positive Definiteness
+
+A symmetric matrix $A$ defines a **quadratic form** $Q(x) = x^T A x$.
+
+$A$ is **positive definite** ($A \succ 0$) if $Q(x) > 0$ for all $x \neq 0$.
+
+By the Spectral Theorem:
+
+$$
+x^TAx = x^T QDQ^T x = y^T Dy = \sum_{i=1}^n \lambda_i y_i^2
+$$
+
+where $y = Q^Tx$. Therefore:
+
+$$
+A \succ 0 \iff \text{all eigenvalues } \lambda_i > 0
+$$
+
+## Applications
+
+### 1. Stability of Dynamical Systems
+
+For the linear system $\dot{x} = Ax$:
+- All eigenvalues have negative real part $\implies$ **asymptotically stable**
+- Any eigenvalue has positive real part $\implies$ **unstable**
+
+### 2. Principal Component Analysis (PCA)
+
+Given data with covariance matrix $\Sigma$, the eigenvectors of $\Sigma$ are the **principal directions** and the eigenvalues are the **variances** along those directions.
+
+### 3. Markov Chains
+
+A stochastic matrix $P$ always has eigenvalue $\lambda = 1$. The corresponding eigenvector gives the **stationary distribution** of the Markov chain.
+
+## The Cayley–Hamilton Theorem
+
+**Theorem.** Every matrix satisfies its own characteristic polynomial:
+
+$$
+p_A(A) = A^n - (\text{tr}\, A) A^{n-1} + \cdots + (-1)^n (\det A) I = 0
+$$
+
+This allows expressing $A^{-1}$ as a polynomial in $A$:
+
+$$
+A^{-1} = \frac{(-1)^{n+1}}{\det A}\left(A^{n-1} - (\text{tr}\, A) A^{n-2} + \cdots\right)
+$$
+
+## Key Takeaways
+
+1. Eigenvalues encode the **scaling behavior** of a linear transformation along special directions.
+2. The **Spectral Theorem** guarantees beautiful structure for symmetric matrices — real eigenvalues and orthogonal eigenvectors.
+3. Eigenvalue analysis is the first step in understanding **stability** of dynamical systems.
+4. The eigenvalue decomposition is computationally powerful: it simplifies matrix powers, exponentials, and quadratic forms.
+
+## Further Reading
+
+- Axler, *Linear Algebra Done Right*
+- Horn & Johnson, *Matrix Analysis*
+- Strang, *Linear Algebra and Its Applications*
+
+---
+
+*Eigenvalues are the DNA of a matrix — they encode its essential character in the most compact possible form.*
