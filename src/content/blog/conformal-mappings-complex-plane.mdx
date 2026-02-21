@@ -1,0 +1,137 @@
+---
+title: "Conformal Mappings: Geometry-Preserving Transformations in the Complex Plane"
+date: "2026-02-10"
+category: "Complex Analysis"
+excerpt: "An exploration of conformal mappings — angle-preserving transformations of the complex plane — the Riemann mapping theorem, Möbius transformations, and their applications to fluid dynamics and electrostatics."
+---
+
+## Introduction
+
+**Conformal mappings** are the crown jewels of complex analysis. These are holomorphic functions that preserve angles and local geometry, transforming complicated regions into simpler ones while maintaining the essential structure of problems defined on them. The **Riemann mapping theorem** — one of the deepest results in all of analysis — guarantees that any reasonable region can be conformally mapped to a disk.
+
+## What Is a Conformal Map?
+
+A function $f: U \to \mathbb{C}$ is **conformal** at $z_0$ if it preserves angles and orientations between curves passing through $z_0$.
+
+**Theorem.** A holomorphic function $f$ is conformal at every point where $f'(z) \neq 0$.
+
+**Proof sketch.** If two smooth curves intersect at $z_0$ with tangent vectors $v$ and $w$, then their images intersect at $f(z_0)$ with tangent vectors $f'(z_0) \cdot v$ and $f'(z_0) \cdot w$. Multiplication by $f'(z_0) \neq 0$ scales and rotates both vectors by the same amount, preserving the angle between them.
+
+Locally, a conformal map $f$ acts as:
+- **Rotation** by $\arg f'(z_0)$
+- **Scaling** by $|f'(z_0)|$
+
+## Möbius Transformations
+
+The most important conformal maps are the **Möbius transformations** (linear fractional transformations):
+
+$$
+f(z) = \frac{az + b}{cz + d}, \quad ad - bc \neq 0
+$$
+
+These form a group isomorphic to $PSL(2, \mathbb{C}) = SL(2, \mathbb{C})/\{\pm I\}$.
+
+### Key Properties
+
+1. Möbius transformations map **circles and lines** to circles and lines (generalized circles on the Riemann sphere).
+2. They are **triply transitive**: given any three distinct points $z_1, z_2, z_3$ and any three distinct targets $w_1, w_2, w_3$, there exists a unique Möbius transformation with $f(z_k) = w_k$.
+3. They preserve the **cross-ratio**:
+
+$$
+(z_1, z_2; z_3, z_4) = \frac{(z_1 - z_3)(z_2 - z_4)}{(z_1 - z_4)(z_2 - z_3)}
+$$
+
+### Important Special Cases
+
+**Automorphisms of the disk** $\mathbb{D} = \{|z| < 1\}$:
+
+$$
+f(z) = e^{i\theta} \frac{z - a}{1 - \overline{a}z}, \quad |a| < 1
+$$
+
+**Automorphisms of the upper half-plane** $\mathbb{H} = \{\text{Im}(z) > 0\}$:
+
+$$
+f(z) = \frac{az + b}{cz + d}, \quad a,b,c,d \in \mathbb{R}, \; ad - bc > 0
+$$
+
+**Cayley transform** $\mathbb{H} \to \mathbb{D}$:
+
+$$
+w = \frac{z - i}{z + i}
+$$
+
+## The Riemann Mapping Theorem
+
+**Theorem (Riemann, 1851).** Let $U \subsetneq \mathbb{C}$ be a simply connected open set that is not all of $\mathbb{C}$. Then there exists a biholomorphic (conformal) map:
+
+$$
+f: U \xrightarrow{\sim} \mathbb{D}
+$$
+
+Moreover, if we fix $z_0 \in U$ and require $f(z_0) = 0$ and $f'(z_0) > 0$, then $f$ is unique.
+
+This is extraordinary: all simply connected regions (except $\mathbb{C}$ itself) are conformally equivalent, regardless of their shape.
+
+### Proof Idea (Koebe, Carathéodory)
+
+Consider the family $\mathcal{F} = \{f: U \to \mathbb{D} : f \text{ injective}, f(z_0) = 0\}$. By a normal families argument (Montel's theorem), $\mathcal{F}$ has an element maximizing $|f'(z_0)|$. One then shows this maximizer must be surjective — if it missed a point, one could "improve" it.
+
+## The Schwarz–Christoffel Formula
+
+For polygonal domains, the conformal map from the upper half-plane is given explicitly by the **Schwarz–Christoffel formula**:
+
+$$
+f(z) = A \int^z \prod_{k=1}^n (\zeta - x_k)^{\alpha_k - 1} \, d\zeta + B
+$$
+
+where $x_1 < \cdots < x_n$ are the preimages of the vertices on $\mathbb{R}$, and $\alpha_k \pi$ are the interior angles.
+
+**Example.** The map from $\mathbb{H}$ to a rectangle involves elliptic integrals:
+
+$$
+f(z) = \int_0^z \frac{d\zeta}{\sqrt{(1-\zeta^2)(1-k^2\zeta^2)}}
+$$
+
+## Applications
+
+### Fluid Dynamics
+
+For 2D irrotational, incompressible flow, the velocity field is $\overline{f'(z)}$ for a holomorphic $f$. Conformal mappings transform flow around complicated shapes into flow around simpler ones.
+
+**Example:** Flow around an airfoil is obtained from flow around a circle via the **Joukowski transform**:
+
+$$
+w = z + \frac{1}{z}
+$$
+
+### Electrostatics
+
+The electric potential in 2D satisfies Laplace's equation $\Delta \phi = 0$. Since conformal maps preserve harmonic functions, we can solve boundary value problems by mapping to domains where the solution is known.
+
+### Hyperbolic Geometry
+
+The **Poincaré disk model** of hyperbolic geometry uses $\mathbb{D}$ with the metric:
+
+$$
+ds^2 = \frac{4(dx^2 + dy^2)}{(1-|z|^2)^2}
+$$
+
+The isometries of this metric are precisely the Möbius transformations preserving $\mathbb{D}$.
+
+## Key Takeaways
+
+1. **Conformal maps** preserve angles; holomorphic functions with nonvanishing derivative are conformal.
+2. **Möbius transformations** are the fundamental conformal maps — they map circles to circles and preserve cross-ratios.
+3. The **Riemann mapping theorem** guarantees that all simply connected proper subdomains of $\mathbb{C}$ are conformally equivalent.
+4. Conformal mappings have powerful applications in **physics** — fluid dynamics, electrostatics, and hyperbolic geometry.
+
+## Further Reading
+
+- *Complex Analysis* by Lars Ahlfors — the classic treatment by a Fields medalist
+- *Visual Complex Analysis* by Tristan Needham — stunning geometric intuition
+- *Complex Analysis* by Stein and Shakarchi — modern and rigorous
+
+---
+
+*Conformal maps: where analysis meets geometry. Explore more on the [blog](/blog).*

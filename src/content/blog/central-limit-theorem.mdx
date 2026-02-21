@@ -1,0 +1,135 @@
+---
+title: "The Central Limit Theorem: Why the Bell Curve Rules the World"
+date: "2026-01-26"
+category: "Probability"
+excerpt: "A rigorous exploration of the central limit theorem — the most important theorem in probability — explaining why the normal distribution appears everywhere, from measurement errors to financial markets."
+---
+
+## Introduction
+
+The **central limit theorem** (CLT) is, arguably, the single most important theorem in all of probability and statistics. It explains a remarkable empirical fact: averages of independent random variables tend to follow a **normal distribution**, regardless of the distribution of the individual variables. This universality is why the bell curve appears everywhere — in experimental measurements, financial returns, test scores, and natural phenomena.
+
+## The Classical Statement
+
+**Theorem (Lindeberg–Lévy CLT).** Let $X_1, X_2, \ldots$ be independent and identically distributed (i.i.d.) random variables with mean $\mu = \mathbb{E}[X_1]$ and variance $\sigma^2 = \text{Var}(X_1) \in (0, \infty)$. Let $S_n = X_1 + \cdots + X_n$. Then:
+
+$$
+\frac{S_n - n\mu}{\sigma\sqrt{n}} \xrightarrow{d} N(0,1) \quad \text{as } n \to \infty
+$$
+
+Equivalently, for the sample mean $\bar{X}_n = S_n/n$:
+
+$$
+\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0,1)
+$$
+
+The **convergence in distribution** means: for all $a < b$:
+
+$$
+\mathbb{P}\left(a \leq \frac{S_n - n\mu}{\sigma\sqrt{n}} \leq b\right) \to \int_a^b \frac{1}{\sqrt{2\pi}} e^{-x^2/2} \, dx
+$$
+
+## Proof via Characteristic Functions
+
+The most elegant proof uses **characteristic functions** $\varphi_X(t) = \mathbb{E}[e^{itX}]$.
+
+**Lévy's continuity theorem:** $X_n \xrightarrow{d} X$ if and only if $\varphi_{X_n}(t) \to \varphi_X(t)$ for all $t$.
+
+**Proof of CLT.** Without loss of generality, assume $\mu = 0$, $\sigma = 1$. Then $\varphi_{X_1}(t) = 1 - t^2/2 + o(t^2)$ near $t = 0$.
+
+The characteristic function of $S_n/\sqrt{n}$ is:
+
+$$
+\varphi_{S_n/\sqrt{n}}(t) = \left[\varphi_{X_1}\left(\frac{t}{\sqrt{n}}\right)\right]^n = \left[1 - \frac{t^2}{2n} + o\left(\frac{t^2}{n}\right)\right]^n \to e^{-t^2/2}
+$$
+
+which is the characteristic function of $N(0,1)$. $\square$
+
+## The Berry–Esseen Theorem
+
+How fast does convergence occur? The **Berry–Esseen theorem** quantifies the error:
+
+$$
+\sup_{x \in \mathbb{R}} \left|\mathbb{P}\left(\frac{S_n - n\mu}{\sigma\sqrt{n}} \leq x\right) - \Phi(x)\right| \leq \frac{C \cdot \mathbb{E}[|X_1 - \mu|^3]}{\sigma^3 \sqrt{n}}
+$$
+
+where $\Phi$ is the standard normal CDF and $C \leq 0.4748$ (the best known constant as of 2023).
+
+The rate is $O(1/\sqrt{n})$ — convergence is **not fast**, which is why the CLT can be a poor approximation for small samples.
+
+## Beyond i.i.d.: The Lindeberg CLT
+
+**Theorem (Lindeberg, 1922).** Let $X_1, X_2, \ldots$ be independent (but not necessarily identically distributed) with $\mathbb{E}[X_k] = 0$, $\text{Var}(X_k) = \sigma_k^2$, and $s_n^2 = \sum_{k=1}^n \sigma_k^2$. If the **Lindeberg condition** holds:
+
+$$
+\frac{1}{s_n^2} \sum_{k=1}^n \mathbb{E}\left[X_k^2 \cdot \mathbf{1}_{|X_k| > \varepsilon s_n}\right] \to 0 \quad \text{for all } \varepsilon > 0
+$$
+
+then $S_n / s_n \xrightarrow{d} N(0,1)$.
+
+The Lindeberg condition says: no single summand dominates the sum. This is the most general "classical" CLT.
+
+## The Multivariate CLT
+
+**Theorem.** Let $\mathbf{X}_1, \mathbf{X}_2, \ldots$ be i.i.d. random vectors in $\mathbb{R}^d$ with mean $\boldsymbol{\mu}$ and covariance matrix $\Sigma$. Then:
+
+$$
+\sqrt{n}(\bar{\mathbf{X}}_n - \boldsymbol{\mu}) \xrightarrow{d} N(\mathbf{0}, \Sigma)
+$$
+
+This extends the CLT to vector-valued observations — essential for multivariate statistics.
+
+## When the CLT Fails
+
+The CLT requires $\sigma^2 < \infty$. For **heavy-tailed distributions** where $\text{Var}(X) = \infty$, the normalized sums converge not to a normal distribution but to a **stable distribution**.
+
+**Example:** Cauchy-distributed random variables. The sample mean of $n$ Cauchy variables has the same Cauchy distribution for any $n$ — no convergence to normal occurs.
+
+**Stable distributions** $S(\alpha, \beta)$ with $\alpha \in (0,2]$ generalize the normal ($\alpha = 2$) and Cauchy ($\alpha = 1$):
+
+$$
+\frac{S_n}{n^{1/\alpha}} \xrightarrow{d} S(\alpha, \beta)
+$$
+
+## Applications
+
+### Confidence Intervals
+
+By the CLT, $\bar{X}_n \approx N(\mu, \sigma^2/n)$ for large $n$. The **95% confidence interval** for $\mu$:
+
+$$
+\bar{X}_n \pm 1.96 \cdot \frac{\sigma}{\sqrt{n}}
+$$
+
+### The Delta Method
+
+If $\sqrt{n}(\bar{X}_n - \mu) \xrightarrow{d} N(0, \sigma^2)$ and $g$ is differentiable with $g'(\mu) \neq 0$:
+
+$$
+\sqrt{n}(g(\bar{X}_n) - g(\mu)) \xrightarrow{d} N(0, \sigma^2 [g'(\mu)]^2)
+$$
+
+### Random Walks and Diffusion
+
+The CLT explains why random walks converge to Brownian motion (Donsker's theorem). Brownian motion is the **continuous central limit** — the CLT in function space.
+
+## The CLT in Culture
+
+The ubiquity of the normal distribution in nature — heights, measurement errors, exam scores — is a direct consequence of the CLT. Whenever a quantity is the sum of many small, independent effects, the normal distribution emerges. As Francis Galton wrote: "The law would have been personified by the Greeks if they had known of it."
+
+## Key Takeaways
+
+1. The **CLT** states that normalized sums of i.i.d. random variables converge to a normal distribution.
+2. The proof uses **characteristic functions** and the fact that $(1 + x/n)^n \to e^x$.
+3. The **Berry–Esseen theorem** gives the rate of convergence: $O(1/\sqrt{n})$.
+4. The CLT fails for heavy-tailed distributions — the **stable laws** take over.
+
+## Further Reading
+
+- *Probability: Theory and Examples* by Rick Durrett — rigorous CLT treatment
+- *An Introduction to Probability Theory and Its Applications* by William Feller — the classic with marvelous examples
+- *High-Dimensional Probability* by Roman Vershynin — modern extensions
+
+---
+
+*The bell curve: mathematics' most universal shape. More probability on the [blog](/blog).*

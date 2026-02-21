@@ -1,0 +1,120 @@
+---
+title: "Elliptic Curves: From Diophantine Equations to Modern Cryptography"
+date: "2026-01-22"
+category: "Number Theory"
+excerpt: "A journey through elliptic curves — from their rich arithmetic structure and the group law to the Birch and Swinnerton-Dyer conjecture and their revolutionary role in modern cryptography."
+---
+
+## Introduction
+
+**Elliptic curves** are among the most fascinating objects in mathematics — simple to define yet inexhaustibly deep. An elliptic curve is a smooth cubic curve with a group structure on its points, and this combination of geometry and algebra has made elliptic curves central to number theory, algebraic geometry, and cryptography. Andrew Wiles's proof of Fermat's Last Theorem, modern internet encryption, and one of the Millennium Prize Problems all revolve around elliptic curves.
+
+## Definition
+
+An **elliptic curve** over a field $K$ is a smooth projective curve of genus 1 with a specified rational point. In **Weierstrass form**, it is given by:
+
+$$
+E: \quad y^2 = x^3 + ax + b, \quad a, b \in K
+$$
+
+with **discriminant** $\Delta = -16(4a^3 + 27b^2) \neq 0$ (ensuring smoothness — no cusps or self-intersections).
+
+**Examples:**
+- $y^2 = x^3 - x$ (the **congruent number curve**)
+- $y^2 = x^3 - 2$ (connected to $\sqrt[3]{2}$)
+- $y^2 + y = x^3 - x^2$ (the curve in the modularity theorem)
+
+## The Group Law
+
+The remarkable fact: the set of points on an elliptic curve forms an **abelian group** under a geometric addition law.
+
+**Addition:** Given points $P, Q \in E$, the line through $P$ and $Q$ intersects $E$ at a third point $R$. Define $P + Q$ as the reflection of $R$ across the $x$-axis.
+
+**Formally:** If $P = (x_1, y_1)$ and $Q = (x_2, y_2)$ with $P \neq \pm Q$:
+
+$$
+\lambda = \frac{y_2 - y_1}{x_2 - x_1}, \quad x_3 = \lambda^2 - x_1 - x_2, \quad y_3 = \lambda(x_1 - x_3) - y_1
+$$
+
+**Doubling** ($P = Q$): use the tangent line, $\lambda = \frac{3x_1^2 + a}{2y_1}$.
+
+The **identity element** is the point at infinity $\mathcal{O}$. The inverse of $(x, y)$ is $(x, -y)$.
+
+This group structure is what makes elliptic curves so special — it's a rare and beautiful fusion of geometry and algebra.
+
+## Rational Points: The Mordell–Weil Theorem
+
+**Theorem (Mordell, 1922; Weil, 1928).** The group $E(\mathbb{Q})$ of rational points on an elliptic curve over $\mathbb{Q}$ is a finitely generated abelian group:
+
+$$
+E(\mathbb{Q}) \cong \mathbb{Z}^r \oplus E(\mathbb{Q})_{\text{tors}}
+$$
+
+where $r \geq 0$ is the **rank** and $E(\mathbb{Q})_{\text{tors}}$ is a finite group.
+
+**Mazur's Theorem (1977).** The torsion subgroup $E(\mathbb{Q})_{\text{tors}}$ is one of exactly 15 possible groups:
+
+$$
+\mathbb{Z}/n\mathbb{Z} \text{ for } n = 1, \ldots, 10, 12 \quad \text{or} \quad \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2n\mathbb{Z} \text{ for } n = 1, \ldots, 4
+$$
+
+The **rank** $r$ is the deep mystery: there is no known algorithm guaranteed to compute it.
+
+## The $L$-function and BSD Conjecture
+
+The **Hasse–Weil $L$-function** of $E/\mathbb{Q}$ is:
+
+$$
+L(E, s) = \prod_{p \text{ good}} \frac{1}{1 - a_p p^{-s} + p^{1-2s}} \cdot \prod_{p \text{ bad}} (\text{local factor})
+$$
+
+where $a_p = p + 1 - \#E(\mathbb{F}_p)$.
+
+**Birch and Swinnerton-Dyer Conjecture** (Millennium Prize Problem, \$1M):
+
+$$
+\text{ord}_{s=1} L(E, s) = \text{rank}(E(\mathbb{Q}))
+$$
+
+The order of vanishing of $L(E,s)$ at $s = 1$ equals the rank. This conjecture connects the analytic behavior of $L$-functions to the arithmetic of elliptic curves.
+
+**Known cases:**
+- $r = 0$: proven (Coates–Wiles, Rubin, Kolyvagin)
+- $r = 1$: proven (Gross–Zagier, Kolyvagin)
+- $r \geq 2$: wide open
+
+## Modularity and Fermat's Last Theorem
+
+**Modularity Theorem (Wiles et al., 1995–2001).** Every elliptic curve over $\mathbb{Q}$ is **modular**: there exists a modular form $f$ of weight 2 such that $L(E, s) = L(f, s)$.
+
+**Fermat's Last Theorem** follows: if $a^n + b^n = c^n$ with $n > 2$ and $abc \neq 0$, then the **Frey curve** $y^2 = x(x - a^n)(x + b^n)$ would be a non-modular elliptic curve. Since all elliptic curves are modular, no such solution exists.
+
+## Elliptic Curve Cryptography
+
+The **discrete logarithm problem** on elliptic curves over finite fields $\mathbb{F}_p$: given $P$ and $Q = nP$, find $n$. This is believed to be computationally hard — much harder than the analogous problem in $\mathbb{F}_p^*$.
+
+**Consequence:** Elliptic curve cryptography (ECC) achieves the same security as RSA with much smaller key sizes:
+
+| Security Level | RSA Key Size | ECC Key Size |
+|----------------|-------------|-------------|
+| 128 bits | 3072 bits | 256 bits |
+| 256 bits | 15360 bits | 512 bits |
+
+ECC is used in TLS/SSL, Bitcoin, Signal Protocol, and government communications worldwide.
+
+## Key Takeaways
+
+1. **Elliptic curves** combine geometry and algebra through their group law.
+2. The **Mordell–Weil theorem** shows rational points form a finitely generated group.
+3. The **BSD conjecture** links the rank to the $L$-function — a Millennium Prize Problem.
+4. **Elliptic curve cryptography** provides efficient, secure communications.
+
+## Further Reading
+
+- *Rational Points on Elliptic Curves* by Silverman and Tate — accessible undergraduate text
+- *The Arithmetic of Elliptic Curves* by Joseph Silverman — the definitive graduate reference
+- *Elliptic Curves, Modular Forms, and Their $L$-functions* by Álvaro Lozano-Robledo — bridges the topics beautifully
+
+---
+
+*Where number theory meets the real world. More on the [blog](/blog).*

@@ -1,0 +1,139 @@
+---
+title: "Probability Theory: From Kolmogorov's Axioms to the Law of Large Numbers"
+date: "2026-02-17"
+category: "Probability"
+excerpt: "A rigorous development of probability theory built on measure theory — sigma-algebras, random variables, expectation, and the deep theorems that make probability a cornerstone of modern mathematics."
+---
+
+## Introduction
+
+**Probability theory** is the mathematical study of randomness and uncertainty. While its origins lie in gambling problems of the 17th century, the modern theory — established by **Andrey Kolmogorov** in 1933 — is built on the rigorous foundation of **measure theory**. This synthesis transformed probability from a collection of ad hoc techniques into one of the most powerful and beautiful branches of mathematics.
+
+## Kolmogorov's Axioms
+
+A **probability space** is a triple $(\Omega, \mathcal{F}, \mathbb{P})$ where:
+
+- $\Omega$ is the **sample space** (set of all possible outcomes)
+- $\mathcal{F}$ is a **$\sigma$-algebra** on $\Omega$ (the collection of measurable events)
+- $\mathbb{P}: \mathcal{F} \to [0,1]$ is a **probability measure** satisfying:
+
+**Axiom 1.** $\mathbb{P}(\Omega) = 1$
+
+**Axiom 2.** For any countable collection of pairwise disjoint events $A_1, A_2, \ldots \in \mathcal{F}$:
+
+$$
+\mathbb{P}\left(\bigcup_{n=1}^\infty A_n\right) = \sum_{n=1}^\infty \mathbb{P}(A_n)
+$$
+
+From these axioms, all of probability theory follows.
+
+## Random Variables
+
+A **random variable** is a measurable function $X: \Omega \to \mathbb{R}$. That is:
+
+$$
+X^{-1}(B) = \{\omega \in \Omega : X(\omega) \in B\} \in \mathcal{F} \quad \text{for all Borel sets } B
+$$
+
+The **distribution** (or law) of $X$ is the pushforward measure $\mu_X = \mathbb{P} \circ X^{-1}$ on $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$.
+
+The **cumulative distribution function** (CDF) is:
+
+$$
+F_X(x) = \mathbb{P}(X \leq x) = \mu_X((-\infty, x])
+$$
+
+### Types of Random Variables
+
+- **Discrete:** $X$ takes values in a countable set, $\mathbb{P}(X = x_k) = p_k$.
+- **Absolutely continuous:** $F_X(x) = \int_{-\infty}^x f_X(t)\,dt$ for a **density** $f_X \geq 0$.
+- **Singular:** $F_X$ is continuous but $F_X' = 0$ almost everywhere (e.g., the Cantor distribution).
+
+## Expectation
+
+For a random variable $X \geq 0$, the **expectation** is defined via the Lebesgue integral:
+
+$$
+\mathbb{E}[X] = \int_\Omega X(\omega) \, d\mathbb{P}(\omega)
+$$
+
+For general $X$, we write $X = X^+ - X^-$ and define $\mathbb{E}[X] = \mathbb{E}[X^+] - \mathbb{E}[X^-]$ when at least one is finite.
+
+**Key properties:**
+
+1. **Linearity:** $\mathbb{E}[aX + bY] = a\mathbb{E}[X] + b\mathbb{E}[Y]$
+2. **Monotonicity:** $X \leq Y$ a.s. $\Rightarrow$ $\mathbb{E}[X] \leq \mathbb{E}[Y]$
+3. **Jensen's inequality:** If $\varphi$ is convex, $\varphi(\mathbb{E}[X]) \leq \mathbb{E}[\varphi(X)]$
+
+## Independence
+
+Events $A_1, \ldots, A_n$ are **independent** if for every subset $I \subseteq \{1, \ldots, n\}$:
+
+$$
+\mathbb{P}\left(\bigcap_{i \in I} A_i\right) = \prod_{i \in I} \mathbb{P}(A_i)
+$$
+
+Random variables $X_1, \ldots, X_n$ are independent if for all Borel sets $B_1, \ldots, B_n$:
+
+$$
+\mathbb{P}(X_1 \in B_1, \ldots, X_n \in B_n) = \prod_{i=1}^n \mathbb{P}(X_i \in B_i)
+$$
+
+**Crucial fact:** Pairwise independence does not imply mutual independence!
+
+## The Law of Large Numbers
+
+### Weak Law (Khintchine)
+
+**Theorem.** Let $X_1, X_2, \ldots$ be i.i.d. with $\mathbb{E}[X_1] = \mu$ and $\text{Var}(X_1) < \infty$. Then the sample mean $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$ converges to $\mu$ **in probability**:
+
+$$
+\forall \varepsilon > 0: \quad \mathbb{P}(|\bar{X}_n - \mu| > \varepsilon) \to 0 \text{ as } n \to \infty
+$$
+
+### Strong Law (Kolmogorov)
+
+**Theorem.** Under the same hypotheses (in fact, only $\mathbb{E}[|X_1|] < \infty$ suffices):
+
+$$
+\mathbb{P}\left(\lim_{n \to \infty} \bar{X}_n = \mu\right) = 1
+$$
+
+The sample mean converges to $\mu$ **almost surely**. This is a much stronger statement — the set of outcomes where convergence fails has probability exactly zero.
+
+## The Central Limit Theorem
+
+**Theorem (Lindeberg–Lévy CLT).** Let $X_1, X_2, \ldots$ be i.i.d. with mean $\mu$ and variance $\sigma^2 < \infty$. Then:
+
+$$
+\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} N(0,1)
+$$
+
+The normalized sample mean converges in distribution to a standard normal — regardless of the distribution of the $X_i$! This is perhaps the most remarkable theorem in all of probability.
+
+## Conditional Expectation
+
+Given a sub-$\sigma$-algebra $\mathcal{G} \subseteq \mathcal{F}$, the **conditional expectation** $\mathbb{E}[X|\mathcal{G}]$ is the unique (a.s.) $\mathcal{G}$-measurable random variable satisfying:
+
+$$
+\int_G \mathbb{E}[X|\mathcal{G}] \, d\mathbb{P} = \int_G X \, d\mathbb{P} \quad \forall G \in \mathcal{G}
+$$
+
+Its existence is guaranteed by the **Radon–Nikodym theorem**. Conditional expectation is a projection in $L^2$ — it gives the best $\mathcal{G}$-measurable approximation of $X$ in the mean-square sense.
+
+## Key Takeaways
+
+1. Modern probability is built on **Kolmogorov's measure-theoretic axioms**.
+2. The **law of large numbers** justifies using averages as estimates.
+3. The **central limit theorem** explains the ubiquity of the normal distribution.
+4. **Conditional expectation** is the cornerstone of martingale theory and stochastic analysis.
+
+## Further Reading
+
+- *Probability: Theory and Examples* by Rick Durrett — the standard graduate text
+- *Probability and Measure* by Patrick Billingsley — beautiful and rigorous
+- *A Probability Path* by Sidney Resnick — excellent bridge from undergraduate to graduate
+
+---
+
+*Probability is the mathematics of uncertainty made precise. Read more on the [blog](/blog).*

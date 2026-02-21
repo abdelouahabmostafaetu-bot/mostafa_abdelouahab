@@ -1,0 +1,143 @@
+---
+title: "Quadratic Reciprocity: The Golden Theorem of Number Theory"
+date: "2026-02-12"
+category: "Number Theory"
+excerpt: "An exploration of quadratic reciprocity — Gauss's 'golden theorem' — the law governing which primes are quadratic residues modulo other primes, with its elegant statement and far-reaching generalizations."
+---
+
+## Introduction
+
+The **law of quadratic reciprocity** is one of the most beautiful and profound results in number theory. Gauss, who called it the *theorema aureum* (golden theorem), gave six different proofs during his lifetime, and over 240 proofs have been published to date. It governs the solvability of quadratic equations modulo primes and lies at the foundation of algebraic number theory.
+
+## Quadratic Residues
+
+An integer $a$ is a **quadratic residue** modulo a prime $p$ (with $p \nmid a$) if there exists $x$ such that:
+
+$$
+x^2 \equiv a \pmod{p}
+$$
+
+Otherwise, $a$ is a **quadratic non-residue** modulo $p$.
+
+**Example.** Modulo 7, the squares are $1^2 \equiv 1$, $2^2 \equiv 4$, $3^2 \equiv 2$. So the quadratic residues mod 7 are $\{1, 2, 4\}$ and the non-residues are $\{3, 5, 6\}$.
+
+**Fact.** Exactly half of the nonzero elements modulo $p$ are quadratic residues: there are $\frac{p-1}{2}$ residues and $\frac{p-1}{2}$ non-residues.
+
+## The Legendre Symbol
+
+The **Legendre symbol** encodes this information:
+
+$$
+\left(\frac{a}{p}\right) = \begin{cases} 1 & \text{if } a \text{ is a QR mod } p \\ -1 & \text{if } a \text{ is a QNR mod } p \\ 0 & \text{if } p \mid a \end{cases}
+$$
+
+**Euler's criterion:**
+
+$$
+\left(\frac{a}{p}\right) \equiv a^{(p-1)/2} \pmod{p}
+$$
+
+This gives us a computational tool.
+
+### Basic Values
+
+$$
+\left(\frac{-1}{p}\right) = (-1)^{(p-1)/2} = \begin{cases} 1 & \text{if } p \equiv 1 \pmod{4} \\ -1 & \text{if } p \equiv 3 \pmod{4} \end{cases}
+$$
+
+So $-1$ is a square mod $p$ if and only if $p \equiv 1 \pmod{4}$.
+
+$$
+\left(\frac{2}{p}\right) = (-1)^{(p^2-1)/8} = \begin{cases} 1 & \text{if } p \equiv \pm 1 \pmod{8} \\ -1 & \text{if } p \equiv \pm 3 \pmod{8} \end{cases}
+$$
+
+## The Law of Quadratic Reciprocity
+
+**Theorem (Gauss, 1801).** Let $p$ and $q$ be distinct odd primes. Then:
+
+$$
+\left(\frac{p}{q}\right)\left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}
+$$
+
+Equivalently:
+- If $p \equiv 1 \pmod{4}$ or $q \equiv 1 \pmod{4}$: $\left(\frac{p}{q}\right) = \left(\frac{q}{p}\right)$
+- If $p \equiv q \equiv 3 \pmod{4}$: $\left(\frac{p}{q}\right) = -\left(\frac{q}{p}\right)$
+
+### What It Means
+
+The theorem says that whether $p$ is a square mod $q$ is intimately related to whether $q$ is a square mod $p$. These seem like unrelated questions — one is about arithmetic modulo $q$, the other modulo $p$ — yet they are connected by a simple sign rule.
+
+### Example
+
+Is 3 a quadratic residue mod 41?
+
+$$
+\left(\frac{3}{41}\right) = \left(\frac{41}{3}\right) \cdot (-1)^{\frac{2 \cdot 40}{4}} = \left(\frac{41}{3}\right) \cdot (-1)^{20} = \left(\frac{41}{3}\right) = \left(\frac{2}{3}\right) = -1
+$$
+
+So 3 is **not** a quadratic residue mod 41.
+
+## Proof Sketch: Gauss's Lemma Approach
+
+**Gauss's Lemma.** Let $p$ be an odd prime and $\gcd(a, p) = 1$. Consider the residues of $a, 2a, 3a, \ldots, \frac{p-1}{2}a$ modulo $p$, reduced to lie in $\{1, 2, \ldots, p-1\}$. Let $\nu$ be the number of these residues that exceed $\frac{p}{2}$. Then:
+
+$$
+\left(\frac{a}{p}\right) = (-1)^\nu
+$$
+
+Using Gauss's lemma, the proof of quadratic reciprocity reduces to a counting argument — specifically, counting lattice points in a rectangle:
+
+$$
+\nu(q, p) + \nu(p, q) = \frac{p-1}{2} \cdot \frac{q-1}{2}
+$$
+
+This elegant geometric argument, due to Eisenstein, provides perhaps the most transparent proof.
+
+## The Jacobi Symbol and Extensions
+
+The **Jacobi symbol** $\left(\frac{a}{n}\right)$ extends the Legendre symbol to composite odd moduli $n = p_1^{a_1} \cdots p_r^{a_r}$:
+
+$$
+\left(\frac{a}{n}\right) = \prod_{i=1}^r \left(\frac{a}{p_i}\right)^{a_i}
+$$
+
+Quadratic reciprocity extends to Jacobi symbols, enabling efficient computation without factoring.
+
+## Higher Reciprocity Laws
+
+Gauss and Jacobi sought generalizations to higher powers:
+
+**Cubic reciprocity:** characterizes when $a$ is a cube modulo $p$. It is most naturally stated over the **Eisenstein integers** $\mathbb{Z}[\omega]$, $\omega = e^{2\pi i/3}$.
+
+**Quartic (biquadratic) reciprocity:** characterizes fourth powers modulo $p$. It lives naturally over the **Gaussian integers** $\mathbb{Z}[i]$.
+
+**Artin reciprocity (1927):** The ultimate generalization, a central theorem of **class field theory**, encompasses all abelian reciprocity laws. It establishes a canonical isomorphism:
+
+$$
+\text{Gal}(K^{\text{ab}}/K) \cong \widehat{C_K}
+$$
+
+relating the abelianized absolute Galois group of a number field $K$ to the idele class group.
+
+## Applications
+
+1. **Primality testing:** Quadratic reciprocity is used in the Solovay–Strassen and other probabilistic primality tests.
+2. **Cryptography:** The quadratic residuosity problem underlies the Goldwasser–Micali cryptosystem.
+3. **Algebraic number theory:** Reciprocity laws motivate the Langlands program — the grand unifying theory of modern number theory.
+
+## Key Takeaways
+
+1. **Quadratic reciprocity** relates the quadratic residue character of two primes to each other.
+2. The **Legendre symbol** and **Euler's criterion** provide computational tools.
+3. **Higher reciprocity laws** led to algebraic number theory and class field theory.
+4. **Artin reciprocity** is the deepest generalization, central to the Langlands program.
+
+## Further Reading
+
+- *A Classical Introduction to Modern Number Theory* by Ireland and Rosen — beautiful treatment with many proofs
+- *Algebraic Number Theory* by Neukirch — for the class field theory perspective
+- *Reciprocity Laws* by Franz Lemmermeyer — encyclopedic history and proofs
+
+---
+
+*The golden theorem — Gauss's favorite. Explore more number theory on the [blog](/blog).*

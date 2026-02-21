@@ -1,0 +1,148 @@
+---
+title: "Hilbert Spaces: The Geometry of Infinite Dimensions"
+date: "2026-02-14"
+category: "Functional Analysis"
+excerpt: "An in-depth study of Hilbert spaces — complete inner product spaces that generalize Euclidean geometry to infinite dimensions — with projections, orthonormal bases, and the Riesz representation theorem."
+---
+
+## Introduction
+
+A **Hilbert space** is the natural setting for geometry in infinite dimensions. It retains the essential features of Euclidean space — angles, orthogonality, projections — while allowing for the infinite-dimensional function spaces that arise in quantum mechanics, signal processing, and partial differential equations. As John von Neumann recognized, Hilbert spaces are the mathematical framework for quantum theory.
+
+## Definition and Examples
+
+A **Hilbert space** $H$ is a complete inner product space. That is, $H$ is a vector space equipped with an inner product $\langle \cdot, \cdot \rangle$ such that the induced norm $\|x\| = \sqrt{\langle x, x \rangle}$ makes $H$ a Banach space (complete normed space).
+
+### Fundamental Examples
+
+**1.** $\mathbb{R}^n$ with $\langle x, y \rangle = \sum_{i=1}^n x_i y_i$.
+
+**2.** $\ell^2$ — the space of square-summable sequences:
+
+$$
+\ell^2 = \left\{(x_n)_{n=1}^\infty : \sum_{n=1}^\infty |x_n|^2 < \infty\right\}, \quad \langle x, y \rangle = \sum_{n=1}^\infty x_n \overline{y_n}
+$$
+
+**3.** $L^2([a,b])$ — the space of square-integrable functions:
+
+$$
+\langle f, g \rangle = \int_a^b f(x)\overline{g(x)}\,dx
+$$
+
+**4.** The **Sobolev space** $H^1([0,1]) = \{f \in L^2 : f' \in L^2\}$ with:
+
+$$
+\langle f, g \rangle_{H^1} = \int_0^1 f\overline{g}\,dx + \int_0^1 f'\overline{g'}\,dx
+$$
+
+## The Parallelogram Law
+
+An inner product always satisfies the **parallelogram law**:
+
+$$
+\|x + y\|^2 + \|x - y\|^2 = 2\|x\|^2 + 2\|y\|^2
+$$
+
+**Theorem (von Neumann–Jordan).** A normed space is an inner product space if and only if the parallelogram law holds. The inner product is then recovered via the **polarization identity**:
+
+$$
+\langle x, y \rangle = \frac{1}{4}\left(\|x+y\|^2 - \|x-y\|^2\right)
+$$
+
+This explains why $L^p$ for $p \neq 2$ is not a Hilbert space — the parallelogram law fails.
+
+## Orthogonality and Projections
+
+Two elements $x, y \in H$ are **orthogonal** ($x \perp y$) if $\langle x, y \rangle = 0$.
+
+**Projection Theorem.** Let $M$ be a closed subspace of $H$. For every $x \in H$, there exists a unique $m_0 \in M$ minimizing $\|x - m\|$ over $m \in M$. Moreover:
+
+$$
+H = M \oplus M^\perp
+$$
+
+where $M^\perp = \{y \in H : \langle y, m \rangle = 0 \text{ for all } m \in M\}$.
+
+The **orthogonal projection** $P_M: H \to M$ satisfies:
+- $P_M^2 = P_M$ (idempotent)
+- $P_M^* = P_M$ (self-adjoint)
+- $\|P_M\| = 1$ (if $M \neq \{0\}$)
+
+## Orthonormal Bases
+
+A set $\{e_\alpha\}_{\alpha \in A}$ is an **orthonormal system** if $\langle e_\alpha, e_\beta \rangle = \delta_{\alpha\beta}$. It is an **orthonormal basis** (complete orthonormal system) if its closed linear span equals $H$.
+
+**Bessel's Inequality.** For any orthonormal system $\{e_n\}$ and $x \in H$:
+
+$$
+\sum_n |\langle x, e_n \rangle|^2 \leq \|x\|^2
+$$
+
+**Parseval's Identity.** If $\{e_n\}$ is an orthonormal basis:
+
+$$
+\|x\|^2 = \sum_n |\langle x, e_n \rangle|^2
+$$
+
+Every element has a **Fourier expansion**: $x = \sum_n \langle x, e_n \rangle e_n$.
+
+**Theorem.** Every separable Hilbert space is isometrically isomorphic to $\ell^2$. This means that, up to isomorphism, there is essentially **one** separable infinite-dimensional Hilbert space.
+
+## The Riesz Representation Theorem
+
+**Theorem (Riesz–Fréchet).** Every bounded linear functional $f: H \to \mathbb{C}$ on a Hilbert space is of the form:
+
+$$
+f(x) = \langle x, y \rangle
+$$
+
+for a unique $y \in H$, and $\|f\| = \|y\|$.
+
+This establishes a **conjugate-linear isometric isomorphism** $H^* \cong H$. It is one of the reasons Hilbert spaces are "self-dual" and so much nicer than general Banach spaces.
+
+### Application: Lax–Milgram Theorem
+
+**Theorem.** Let $a: H \times H \to \mathbb{R}$ be a continuous, coercive bilinear form (i.e., $a(u,u) \geq \alpha\|u\|^2$). Then for every $f \in H^*$, there exists a unique $u \in H$ with:
+
+$$
+a(u, v) = f(v) \quad \forall v \in H
+$$
+
+This is the foundation for the existence theory of elliptic PDEs in Sobolev spaces.
+
+## Operators on Hilbert Spaces
+
+### Self-Adjoint Operators
+
+$T: H \to H$ is **self-adjoint** if $\langle Tx, y \rangle = \langle x, Ty \rangle$ for all $x, y$.
+
+**Spectral Theorem (compact case).** If $T$ is a compact self-adjoint operator, then $H$ has an orthonormal basis of eigenvectors of $T$, and:
+
+$$
+Tx = \sum_n \lambda_n \langle x, e_n \rangle e_n
+$$
+
+where $\lambda_n \to 0$.
+
+### Unitary Operators
+
+$U: H \to H$ is **unitary** if $U^*U = UU^* = I$, equivalently $U$ is surjective and $\langle Ux, Uy \rangle = \langle x, y \rangle$.
+
+In quantum mechanics, time evolution is given by a **one-parameter unitary group** $U(t) = e^{-iHt/\hbar}$ where $H$ is the Hamiltonian.
+
+## Key Takeaways
+
+1. **Hilbert spaces** are complete inner product spaces — the infinite-dimensional generalization of Euclidean geometry.
+2. The **projection theorem** gives orthogonal decomposition: $H = M \oplus M^\perp$.
+3. Separable Hilbert spaces are all isomorphic to $\ell^2$ via **orthonormal bases**.
+4. The **Riesz representation theorem** makes $H^* \cong H$, enabling PDE theory via Lax–Milgram.
+
+## Further Reading
+
+- *An Introduction to Hilbert Space* by N. Young — concise and accessible
+- *Functional Analysis* by Peter Lax — with a wealth of applications
+- *Methods of Modern Mathematical Physics* by Reed and Simon — the bridge to quantum theory
+
+---
+
+*In infinite dimensions, geometry still works beautifully. Discover more on the [blog](/blog).*

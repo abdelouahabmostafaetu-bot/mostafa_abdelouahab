@@ -1,0 +1,148 @@
+---
+title: "Representation Theory: How Groups Act on Vector Spaces"
+date: "2026-01-24"
+category: "Algebra"
+excerpt: "An introduction to representation theory — the art of understanding groups through their actions on linear spaces — with characters, Schur's lemma, and the complete reducibility of finite group representations."
+---
+
+## Introduction
+
+**Representation theory** converts abstract algebra into concrete linear algebra. Rather than studying a group $G$ as an abstract algebraic object, we study it through its **representations** — homomorphisms $G \to GL(V)$ that let $G$ act on vector spaces. This approach not only makes groups more tangible but reveals hidden structure and has applications from quantum mechanics to number theory.
+
+## Definitions
+
+A **(linear) representation** of a group $G$ on a vector space $V$ over $\mathbb{C}$ is a group homomorphism:
+
+$$
+\rho: G \to GL(V)
+$$
+
+Equivalently, $V$ is a **$G$-module**: a vector space with a $G$-action compatible with the linear structure.
+
+The **dimension** (or degree) of the representation is $\dim V$.
+
+### Examples
+
+**1. Trivial representation:** $\rho(g) = I$ for all $g$, on any $V$.
+
+**2. Regular representation:** $G$ acts on $\mathbb{C}[G] = \bigoplus_{g \in G} \mathbb{C} \cdot e_g$ by left multiplication.
+
+**3.** $S_n$ acts on $\mathbb{C}^n$ by permuting coordinates: $\rho(\sigma)(e_i) = e_{\sigma(i)}$.
+
+**4.** $D_n$ (dihedral group) acts on $\mathbb{R}^2$ by rotations and reflections.
+
+**5.** The groups $SU(2)$ and $SO(3)$ have representations on spaces of spherical harmonics — these are the angular momentum representations of quantum mechanics.
+
+## Subrepresentations and Irreducibility
+
+A **subrepresentation** is a subspace $W \subseteq V$ that is $G$-invariant: $\rho(g)(W) \subseteq W$ for all $g$.
+
+A representation is **irreducible** (or simple) if its only subrepresentations are $\{0\}$ and $V$.
+
+Irreducible representations are the "atoms" of representation theory — the building blocks from which all representations are constructed.
+
+## Maschke's Theorem
+
+**Theorem (Maschke).** Let $G$ be a finite group and $\text{char}(\mathbb{C}) \nmid |G|$ (automatic over $\mathbb{C}$). Every representation of $G$ is **completely reducible**: it decomposes as a direct sum of irreducible representations.
+
+$$
+V \cong V_1^{\oplus n_1} \oplus V_2^{\oplus n_2} \oplus \cdots \oplus V_k^{\oplus n_k}
+$$
+
+where $V_1, \ldots, V_k$ are the distinct irreducibles in $V$.
+
+**Proof idea.** Given a $G$-invariant subspace $W \subseteq V$, construct a $G$-invariant complement by averaging any projection $\pi: V \to W$ over the group:
+
+$$
+\hat{\pi}(v) = \frac{1}{|G|} \sum_{g \in G} \rho(g) \circ \pi \circ \rho(g)^{-1}(v)
+$$
+
+Then $\ker(\hat{\pi})$ is a $G$-invariant complement to $W$.
+
+## Schur's Lemma
+
+**Theorem (Schur).** Let $V, W$ be irreducible representations of $G$.
+
+1. If $\phi: V \to W$ is a $G$-equivariant map, then $\phi = 0$ or $\phi$ is an isomorphism.
+2. If $V = W$ (over $\mathbb{C}$), then $\phi = \lambda \cdot I$ for some $\lambda \in \mathbb{C}$.
+
+**Consequence:** Over $\mathbb{C}$, $\text{Hom}_G(V_i, V_j) \cong \begin{cases} \mathbb{C} & i = j \\ 0 & i \neq j \end{cases}$
+
+## Characters
+
+The **character** of a representation $\rho$ is the function $\chi: G \to \mathbb{C}$ defined by:
+
+$$
+\chi(g) = \text{tr}(\rho(g))
+$$
+
+Characters are **class functions** — they are constant on conjugacy classes.
+
+### Orthogonality Relations
+
+For irreducible characters $\chi_i, \chi_j$ of a finite group $G$:
+
+$$
+\langle \chi_i, \chi_j \rangle = \frac{1}{|G|} \sum_{g \in G} \chi_i(g)\overline{\chi_j(g)} = \delta_{ij}
+$$
+
+The irreducible characters form an **orthonormal basis** for the space of class functions.
+
+### The Character Table
+
+A finite group $G$ has exactly $k$ irreducible representations (up to isomorphism), where $k$ equals the number of conjugacy classes. The **character table** is a $k \times k$ matrix recording $\chi_i(C_j)$.
+
+**Fundamental fact:**
+
+$$
+\sum_{i=1}^k (\dim V_i)^2 = |G|
+$$
+
+**Example ($S_3$):** $|S_3| = 6$, three conjugacy classes, three irreducible representations of dimensions 1, 1, 2 (since $1^2 + 1^2 + 2^2 = 6$).
+
+## The Regular Representation
+
+The regular representation $\mathbb{C}[G]$ decomposes as:
+
+$$
+\mathbb{C}[G] \cong \bigoplus_{i=1}^k V_i^{\oplus \dim V_i}
+$$
+
+Each irreducible representation $V_i$ appears with multiplicity equal to its dimension. This is a deep structural result: the group algebra "contains" every representation.
+
+## Applications
+
+### Quantum Mechanics
+
+The symmetries of a quantum system form a group $G$, and the Hilbert space decomposes into irreducible representations. Selection rules, spectral degeneracies, and conservation laws all follow from representation theory.
+
+### Number Theory
+
+**Artin $L$-functions** are defined from representations of Galois groups:
+
+$$
+L(s, \rho) = \prod_p \det(I - \rho(\text{Frob}_p)p^{-s})^{-1}
+$$
+
+The **Langlands program** seeks to connect these to automorphic representations.
+
+### Chemistry
+
+Molecular symmetry groups determine which vibrational modes are IR-active or Raman-active, via irreducible representations.
+
+## Key Takeaways
+
+1. **Representations** make abstract groups concrete by letting them act on vector spaces.
+2. **Maschke's theorem** guarantees complete reducibility for finite groups over $\mathbb{C}$.
+3. **Characters** are the computational tool: orthogonality relations determine decompositions.
+4. Representation theory connects to **physics**, **number theory**, and **chemistry**.
+
+## Further Reading
+
+- *Representation Theory: A First Course* by Fulton and Harris — the standard graduate text
+- *Linear Representations of Finite Groups* by Jean-Pierre Serre — elegant and concise
+- *Group Theory and Physics* by Sternberg — for physical applications
+
+---
+
+*Groups come alive when they act. More algebra on the [blog](/blog).*

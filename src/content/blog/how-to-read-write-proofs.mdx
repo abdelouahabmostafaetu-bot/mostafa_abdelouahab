@@ -1,0 +1,162 @@
+---
+title: "How to Read and Write Mathematical Proofs: A Guide for University Students"
+date: "2026-02-21"
+category: "Study Advice"
+excerpt: "A comprehensive guide to reading, understanding, and writing rigorous mathematical proofs — the essential skill that separates university mathematics from everything that comes before."
+---
+
+## Introduction
+
+The single greatest transition in a mathematics student's career is learning to **read and write proofs**. In high school and early calculus, you compute: solve equations, differentiate functions, evaluate integrals. In university mathematics, you **prove**: establish that statements are true with airtight logical arguments. This transition is difficult — it requires new modes of thinking — but it is also the gateway to genuine mathematical understanding.
+
+After twenty-five years of teaching at the university level, I have observed the same patterns repeatedly: students who master proof-writing thrive in all subsequent courses, while those who never truly learn it struggle indefinitely. This guide distills what I have learned about how to teach — and learn — this essential skill.
+
+## What Is a Proof?
+
+A **mathematical proof** is a logical argument that establishes the truth of a statement beyond any doubt, starting from accepted axioms and previously proven theorems.
+
+A proof is **not**:
+- A collection of examples (examples can illustrate but never prove a general statement)
+- A plausibility argument ("it seems like it should be true")
+- A picture (diagrams guide intuition but are not proofs)
+- A computation that "works" for specific values
+
+A proof **is**:
+- A chain of logical implications, each step justified by a definition, axiom, or theorem
+- A complete argument that covers **all** cases, not just the ones you checked
+- Written in clear, precise language that another mathematician can verify
+
+## How to Read a Proof
+
+Reading mathematics is nothing like reading a novel. A single page of mathematics may take an hour to digest. Here is a structured approach:
+
+### Step 1: Understand the Statement
+
+Before reading the proof, make sure you understand exactly what is being claimed. For every theorem:
+
+- **What are the hypotheses?** What conditions are assumed?
+- **What is the conclusion?** What is being proved?
+- **Can you state the theorem in your own words?**
+- **Can you generate examples?** Find specific instances where the theorem applies. Find near-misses where a hypothesis fails and the conclusion does too.
+
+### Step 2: Identify the Proof Strategy
+
+Most proofs follow one of several standard strategies. Recognizing the strategy gives you a roadmap:
+
+| Strategy | Signal Phrases |
+|----------|---------------|
+| Direct proof | "Suppose $x$ satisfies... Then..." |
+| Contrapositive | "We prove the contrapositive" |
+| Contradiction | "Suppose for contradiction that..." |
+| Induction | "Base case... Inductive step..." |
+| Construction | "Define... We verify that..." |
+| Cases | "Case 1... Case 2..." |
+
+### Step 3: Verify Each Step
+
+Go through the proof line by line. For each step, ask:
+- **Why is this true?** Can I justify it?
+- **Where does it use the hypotheses?**
+- **What would happen if I removed a hypothesis?**
+
+If you cannot justify a step, stop and work on it. Do not move forward hoping it will become clear — it usually won't.
+
+### Step 4: Reconstruct
+
+After reading, close the book and try to **reproduce the proof from memory**. You don't need to remember every word — just the key ideas and structure. If you can reconstruct the proof, you understand it. If you can't, identify exactly where you get stuck and revisit that part.
+
+## How to Write a Proof
+
+### General Principles
+
+**1. Begin with what you know.** State your hypotheses explicitly. "Let $f: [a,b] \to \mathbb{R}$ be continuous."
+
+**2. State what you want to prove.** "We will show that $f$ attains its maximum."
+
+**3. Write in complete sentences.** Mathematics is written in English (or your language) with mathematical notation embedded. Never write a string of symbols without explanatory text.
+
+**4. Introduce all notation.** Before using a variable, say what it is. "Let $\varepsilon > 0$ be given."
+
+**5. Be precise.** There is a vast difference between "for all $\varepsilon > 0$ there exists $\delta > 0$" and "there exists $\delta > 0$ for all $\varepsilon > 0$." Word order matters in logic.
+
+**6. Use connectives.** Words like "therefore," "since," "thus," "because," "it follows that" make the logical structure clear.
+
+### Common Proof Techniques
+
+#### Direct Proof
+
+To prove $P \Rightarrow Q$: assume $P$, derive $Q$.
+
+**Template:**
+> *Proof.* Suppose $P$. [Argument]. Therefore $Q$. $\square$
+
+**Example:** Prove that the sum of two even integers is even.
+
+> *Proof.* Let $m$ and $n$ be even integers. Then $m = 2a$ and $n = 2b$ for some integers $a, b$. Thus $m + n = 2a + 2b = 2(a+b)$. Since $a + b$ is an integer, $m + n$ is even. $\square$
+
+#### Proof by Contradiction
+
+To prove $P$: assume $\neg P$, derive a contradiction.
+
+**Template:**
+> *Proof.* Suppose for contradiction that $\neg P$. [Argument leading to a contradiction]. This is a contradiction. Therefore $P$. $\square$
+
+#### Proof by Induction
+
+To prove $\forall n \geq n_0: P(n)$:
+
+1. **Base case:** Prove $P(n_0)$.
+2. **Inductive step:** Assume $P(k)$ (inductive hypothesis). Prove $P(k+1)$.
+
+**Strong induction:** Assume $P(j)$ for all $n_0 \leq j \leq k$, prove $P(k+1)$.
+
+#### Epsilon-Delta Proofs
+
+To prove a limit $\lim_{x \to c} f(x) = L$:
+
+> *Proof.* Let $\varepsilon > 0$ be given. Choose $\delta = $ [explicit function of $\varepsilon$]. If $0 < |x - c| < \delta$, then [computation showing $|f(x) - L| < \varepsilon$]. $\square$
+
+**Key tip:** Work backwards. First figure out what $\delta$ should be by doing the computation, then write the proof forwards.
+
+## Common Mistakes
+
+**1. Assuming what you want to prove.** The most serious error. "We want to show $x = 5$. Since $x = 5$..." — circular reasoning.
+
+**2. Proving the converse.** To prove $P \Rightarrow Q$, you must assume $P$ and derive $Q$. Assuming $Q$ and deriving $P$ proves the converse, which is a different statement.
+
+**3. Proof by example.** "We checked it for $n = 1, 2, 3, 4, 5$, so it's true for all $n$." This is never valid (unless you can verify all cases).
+
+**4. Sloppy quantifiers.** "There exists $\varepsilon$ for all..." is not the same as "for all $\varepsilon$ there exists..."
+
+**5. Invisible assumptions.** Using properties you haven't stated or justified.
+
+## How to Get Better
+
+**1. Read proofs actively.** Don't just read — verify every step, fill in gaps, question choices.
+
+**2. Do problems.** You learn to write proofs by writing proofs. Lots of them. There is no shortcut.
+
+**3. Start with easier problems.** Build confidence with straightforward proofs before tackling harder ones.
+
+**4. Study multiple proofs of the same theorem.** Seeing different approaches deepens understanding.
+
+**5. Discuss with peers.** Explaining a proof to someone else is the best test of understanding.
+
+**6. Write drafts.** Your first attempt at a proof will be messy. Revise it. Clean proofs are rewritten proofs.
+
+## Recommended Books for Learning Proofs
+
+- *How to Prove It* by Daniel Velleman — systematic guide to logic and proof techniques
+- *Book of Proof* by Richard Hammack — freely available online, excellent exercises
+- *An Introduction to Mathematical Reasoning* by Peter Eccles — concise and well-structured
+- *Proofs and Fundamentals* by Ethan Bloch — thorough with many examples
+
+## Final Thoughts
+
+Learning to prove is learning to **think with precision**. It is hard, and it takes time. You will stare at problems for hours and feel like you're making no progress. This is normal — even expected. The frustration is part of the process, and every mathematician has experienced it.
+
+The reward, when a proof finally clicks — when you see *why something must be true*, not just that it is — is one of the most satisfying intellectual experiences available. It is worth the struggle.
+
+---
+
+*Proof is the lifeblood of mathematics. More study advice on the [blog](/blog).*

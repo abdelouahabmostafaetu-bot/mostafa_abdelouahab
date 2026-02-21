@@ -1,0 +1,146 @@
+---
+title: "Galois Theory: The Bridge Between Field Extensions and Group Theory"
+date: "2026-02-20"
+category: "Algebra"
+excerpt: "A deep exploration of Galois theory — how the symmetries of polynomial roots, captured by groups, determine the solvability of equations and reveal the impossibility of quintic formulas."
+---
+
+## Introduction
+
+**Galois theory** is one of the crown jewels of mathematics. Developed by Évariste Galois before his tragic death at age 20, it establishes a profound correspondence between **field extensions** and **groups of automorphisms**. This correspondence not only explains why there is no general formula for solving polynomial equations of degree five or higher, but also unifies vast areas of algebra, number theory, and geometry.
+
+## Polynomial Equations and Their Roots
+
+We begin with a basic question: given a polynomial $f(x) \in \mathbb{Q}[x]$, can we express its roots using radicals (i.e., combinations of $+, -, \times, \div$, and $n$-th roots)?
+
+For degree 2: the quadratic formula. For degree 3: Cardano's formula. For degree 4: Ferrari's method. But for degree 5?
+
+**Abel–Ruffini Theorem.** There is no general algebraic formula for the roots of a polynomial of degree $\geq 5$.
+
+Galois theory provides the precise criterion for when a particular polynomial is solvable by radicals.
+
+## Field Extensions
+
+A **field extension** $L/K$ consists of a field $L$ containing a subfield $K$. The **degree** of the extension is $[L:K] = \dim_K L$.
+
+**Examples:**
+- $\mathbb{C}/\mathbb{R}$ has degree 2, since $\{1, i\}$ is a basis.
+- $\mathbb{Q}(\sqrt{2})/\mathbb{Q}$ has degree 2, since $\{1, \sqrt{2}\}$ is a basis.
+- $\mathbb{Q}(\sqrt[3]{2})/\mathbb{Q}$ has degree 3.
+
+**Tower Law.** If $K \subseteq F \subseteq L$, then $[L:K] = [L:F] \cdot [F:K]$.
+
+### Splitting Fields
+
+Given $f(x) \in K[x]$, a **splitting field** is the smallest extension of $K$ over which $f$ factors completely into linear factors:
+
+$$
+f(x) = c(x - \alpha_1)(x - \alpha_2) \cdots (x - \alpha_n)
+$$
+
+**Theorem.** Every polynomial has a splitting field, and it is unique up to isomorphism.
+
+## The Galois Group
+
+The **Galois group** $\text{Gal}(L/K)$ is the group of all field automorphisms $\sigma: L \to L$ that fix $K$ pointwise:
+
+$$
+\text{Gal}(L/K) = \{\sigma \in \text{Aut}(L) \mid \sigma(a) = a \text{ for all } a \in K\}
+$$
+
+**Example.** Consider $\mathbb{Q}(\sqrt{2})/\mathbb{Q}$. Any automorphism must send $\sqrt{2}$ to a root of $x^2 - 2$, i.e., to $\pm\sqrt{2}$. So:
+
+$$
+\text{Gal}(\mathbb{Q}(\sqrt{2})/\mathbb{Q}) \cong \mathbb{Z}/2\mathbb{Z}
+$$
+
+**Example.** The splitting field of $x^4 - 2$ over $\mathbb{Q}$ is $\mathbb{Q}(\sqrt[4]{2}, i)$, and:
+
+$$
+\text{Gal}(\mathbb{Q}(\sqrt[4]{2}, i)/\mathbb{Q}) \cong D_4
+$$
+
+the dihedral group of order 8.
+
+## The Fundamental Theorem of Galois Theory
+
+An extension $L/K$ is **Galois** if it is both **normal** (a splitting field of some polynomial) and **separable** (no repeated roots in minimal polynomials).
+
+**Fundamental Theorem.** Let $L/K$ be a finite Galois extension with Galois group $G = \text{Gal}(L/K)$. There is an inclusion-reversing bijection:
+
+$$
+\{\text{intermediate fields } K \subseteq F \subseteq L\} \longleftrightarrow \{\text{subgroups } H \leq G\}
+$$
+
+given by:
+- $F \mapsto \text{Gal}(L/F)$
+- $H \mapsto L^H = \{a \in L \mid \sigma(a) = a \text{ for all } \sigma \in H\}$
+
+Moreover:
+1. $[L:F] = |H|$ and $[F:K] = [G:H]$
+2. $F/K$ is normal (Galois) if and only if $H \trianglelefteq G$
+3. If $H \trianglelefteq G$, then $\text{Gal}(F/K) \cong G/H$
+
+This is why Galois theory is so powerful: it converts field-theoretic questions into group-theoretic ones.
+
+## Solvability by Radicals
+
+A polynomial $f(x) \in K[x]$ is **solvable by radicals** if its roots can be expressed using elements of $K$, the four arithmetic operations, and extraction of $n$-th roots.
+
+**Galois's Theorem.** A polynomial $f(x) \in \mathbb{Q}[x]$ is solvable by radicals if and only if its Galois group is a **solvable group**.
+
+A group $G$ is **solvable** if it has a composition series:
+
+$$
+\{e\} = G_0 \trianglelefteq G_1 \trianglelefteq \cdots \trianglelefteq G_n = G
+$$
+
+where each quotient $G_{i+1}/G_i$ is abelian (equivalently, cyclic of prime order).
+
+### The Unsolvability of the Quintic
+
+The symmetric group $S_5$ is **not solvable** because:
+
+$$
+S_5 \rhd A_5 \rhd \{e\}
+$$
+
+and $A_5$ is **simple** (has no nontrivial normal subgroups) yet nonabelian. Therefore, any polynomial whose Galois group is $S_5$ — and the generic quintic has Galois group $S_5$ — cannot be solved by radicals.
+
+## Constructibility and Galois Theory
+
+The ancient Greeks asked: which geometric figures can be constructed with compass and straightedge?
+
+**Theorem.** A length $\alpha$ is constructible if and only if $[\mathbb{Q}(\alpha):\mathbb{Q}]$ is a power of 2.
+
+This immediately implies the impossibility of three classical problems:
+
+1. **Doubling the cube:** $\sqrt[3]{2}$ has degree 3 over $\mathbb{Q}$ — not a power of 2.
+2. **Trisecting a general angle:** $\cos(20°)$ has degree 3 over $\mathbb{Q}$.
+3. **Squaring the circle:** $\sqrt{\pi}$ is transcendental over $\mathbb{Q}$.
+
+## Applications and Connections
+
+Galois theory is not merely an abstract algebraic tool — it permeates modern mathematics:
+
+- **Algebraic number theory:** The Galois group $\text{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})$ is one of the most important objects in mathematics, central to the Langlands program.
+- **Algebraic geometry:** Galois coverings and étale fundamental groups.
+- **Inverse Galois problem:** Does every finite group appear as a Galois group over $\mathbb{Q}$? Still unsolved.
+- **Cryptography:** Finite field extensions and their Galois groups underpin elliptic curve cryptography.
+
+## Key Takeaways
+
+1. **Galois theory** establishes a bijection between intermediate fields of a Galois extension and subgroups of the Galois group.
+2. A polynomial is **solvable by radicals** if and only if its Galois group is solvable.
+3. The **unsolvability of the quintic** follows from the simplicity of $A_5$.
+4. Galois theory resolves the ancient **constructibility problems** and connects to the deepest problems in modern mathematics.
+
+## Further Reading
+
+- *Algebra* by Serge Lang — the standard graduate reference for field theory and Galois theory
+- *Galois Theory* by Ian Stewart — an accessible and engaging introduction
+- Emil Artin's *Galois Theory* — a classic, beautifully concise treatment
+
+---
+
+*Galois died at 20 but left behind mathematics that reshaped algebra forever. Explore more on the [blog](/blog).*

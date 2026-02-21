@@ -1,0 +1,138 @@
+---
+title: "The Hahn–Banach Theorem: Extending Linear Functionals"
+date: "2026-02-18"
+category: "Functional Analysis"
+excerpt: "An exploration of the Hahn–Banach theorem — one of the pillars of functional analysis — its geometric and analytic forms, and its far-reaching consequences in analysis and optimization."
+---
+
+## Introduction
+
+The **Hahn–Banach theorem** is one of the three fundamental pillars of functional analysis, alongside the uniform boundedness principle and the open mapping theorem. It guarantees that bounded linear functionals defined on subspaces can always be extended to the entire space without increasing the norm. This seemingly technical result has profound consequences throughout mathematics.
+
+## The Analytic Form
+
+**Theorem (Hahn–Banach, analytic form).** Let $X$ be a real vector space, $p: X \to \mathbb{R}$ a sublinear functional (i.e., $p(\lambda x) = \lambda p(x)$ for $\lambda \geq 0$ and $p(x+y) \leq p(x) + p(y)$). If $Y$ is a subspace of $X$ and $f: Y \to \mathbb{R}$ is linear with $f(y) \leq p(y)$ for all $y \in Y$, then there exists a linear $F: X \to \mathbb{R}$ such that:
+
+1. $F|_Y = f$ (extension)
+2. $F(x) \leq p(x)$ for all $x \in X$ (domination)
+
+### Normed Space Version
+
+**Corollary.** Let $X$ be a normed space, $Y$ a subspace, and $f \in Y^*$ a bounded linear functional. Then there exists $F \in X^*$ such that:
+
+$$
+F|_Y = f \quad \text{and} \quad \|F\|_{X^*} = \|f\|_{Y^*}
+$$
+
+The extension preserves the norm exactly — not merely an inequality, but an equality.
+
+## Proof Idea
+
+The proof proceeds in two steps:
+
+**Step 1 (One-dimensional extension).** If $Y$ is a subspace and $x_0 \notin Y$, we can extend $f$ to $Y + \mathbb{R}x_0$ by choosing $F(x_0) = c$ appropriately. The constraint $F \leq p$ forces:
+
+$$
+f(y) - p(y - x_0) \leq c \leq p(y + x_0) - f(y) \quad \forall y \in Y
+$$
+
+The existence of such $c$ requires:
+
+$$
+\sup_{y \in Y} [f(y) - p(y - x_0)] \leq \inf_{y \in Y} [p(y + x_0) - f(y)]
+$$
+
+which follows from sublinearity of $p$ and linearity of $f$.
+
+**Step 2 (Zorn's lemma).** We consider all extensions of $f$ dominated by $p$, ordered by extension. Every chain has an upper bound (take the union). By Zorn's lemma, a maximal element exists — and it must be defined on all of $X$.
+
+## The Geometric Form
+
+**Theorem (Hahn–Banach, separation form).** Let $X$ be a normed space, and let $A, B$ be disjoint convex sets with $A$ open. Then there exists $f \in X^*$ and $\alpha \in \mathbb{R}$ such that:
+
+$$
+f(a) < \alpha \leq f(b) \quad \forall a \in A, \, b \in B
+$$
+
+A **hyperplane** $\{x : f(x) = \alpha\}$ strictly separates $A$ from $B$.
+
+**Strict Separation.** If both $A$ and $B$ are convex, closed, and one is compact, then the separation can be made strict:
+
+$$
+f(a) < \alpha < \beta < f(b) \quad \forall a \in A, \, b \in B
+$$
+
+### Geometric Intuition
+
+In $\mathbb{R}^n$, this says that two disjoint convex sets can always be separated by a hyperplane. In infinite dimensions, the theorem is far more subtle because convex sets can be much more exotic.
+
+## Consequences
+
+### 1. The Dual Space is Rich
+
+**Corollary.** For any $x \neq 0$ in a normed space $X$, there exists $f \in X^*$ with $\|f\| = 1$ and $f(x) = \|x\|$.
+
+This means functional analysis is meaningful: the dual space contains "enough" functionals to distinguish points.
+
+### 2. Canonical Embedding
+
+The map $J: X \to X^{**}$ defined by $J(x)(f) = f(x)$ is an **isometric embedding**:
+
+$$
+\|J(x)\|_{X^{**}} = \sup_{\|f\| \leq 1} |f(x)| = \|x\|
+$$
+
+The last equality uses Hahn–Banach. When $J$ is surjective, $X$ is called **reflexive**.
+
+### 3. Annihilators and Preduals
+
+For a subspace $Y \subseteq X$:
+
+$$
+Y^\perp = \{f \in X^* \mid f(y) = 0 \text{ for all } y \in Y\}
+$$
+
+Hahn–Banach gives $(X/Y)^* \cong Y^\perp$ and $Y^* \cong X^*/Y^\perp$.
+
+### 4. Banach Limits
+
+There exists a **Banach limit** — a bounded linear functional $\text{LIM}: \ell^\infty \to \mathbb{R}$ satisfying:
+
+$$
+\liminf_{n \to \infty} x_n \leq \text{LIM}(x) \leq \limsup_{n \to \infty} x_n
+$$
+
+and $\text{LIM}$ is shift-invariant. This is constructed via Hahn–Banach by extending the usual limit from $c$ (convergent sequences) to $\ell^\infty$.
+
+## The Complex Case
+
+**Theorem (Hahn–Banach, complex version).** The theorem extends to complex spaces. If $f: Y \to \mathbb{C}$ is a bounded linear functional on a subspace $Y$ of a complex normed space $X$, then there exists $F \in X^*$ with $F|_Y = f$ and $\|F\| = \|f\|$.
+
+The proof reduces to the real case by noting that $\text{Re}(F)$ determines $F$:
+
+$$
+F(x) = \text{Re}(F(x)) - i\,\text{Re}(F(ix))
+$$
+
+## Applications Beyond Analysis
+
+- **Optimization:** Separating hyperplanes are fundamental in convex optimization and duality theory.
+- **Economics:** The existence of prices in general equilibrium theory relies on Hahn–Banach type arguments.
+- **Measure theory:** The existence of finitely additive measures extending a given set function.
+
+## Key Takeaways
+
+1. **Hahn–Banach** guarantees the extension of bounded linear functionals with norm preservation.
+2. The **geometric form** provides separation of convex sets by hyperplanes.
+3. The dual space is always **rich enough** to separate points and recover norms.
+4. The proof requires the **axiom of choice** (via Zorn's lemma) in infinite dimensions.
+
+## Further Reading
+
+- *Functional Analysis* by Walter Rudin — Chapter 3 for the definitive treatment
+- *A Course in Functional Analysis* by John B. Conway — excellent motivation and examples
+- *Functional Analysis, Sobolev Spaces and PDEs* by Haim Brezis — applications to PDEs
+
+---
+
+*One of the great existence theorems of analysis. Explore more functional analysis on the [blog](/blog).*
