@@ -5,6 +5,7 @@ import { getBlogPost, getBlogPosts } from '@/lib/content';
 import { renderMDX, extractHeadings } from '@/lib/mdx';
 import { formatDate } from '@/lib/utils';
 import TableOfContents from '@/components/blog/TableOfContents';
+import { TagList } from '@/components/blog/Tag';
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -64,6 +65,11 @@ export default async function BlogPostPage({
                 <p className="mt-4 text-lg text-[var(--color-text-secondary)] leading-relaxed">
                   {post.excerpt}
                 </p>
+              )}
+              {post.tags.length > 0 && (
+                <div className="mt-4">
+                  <TagList tags={post.tags} size="md" />
+                </div>
               )}
             </header>
 

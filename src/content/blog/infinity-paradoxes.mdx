@@ -1,0 +1,75 @@
+---
+title: "Infinity and Its Paradoxes: From Hilbert's Hotel to Cantor's Diagonal"
+date: "2025-12-24"
+category: "Set Theory"
+excerpt: "A tour of mathematical infinity — Hilbert's Hotel, Cantor's diagonal argument, countable vs. uncountable sets, and the continuum hypothesis."
+tags:
+  - "set-theory"
+  - "logic"
+  - "cardinality"
+---
+
+## Introduction
+
+Infinity is not a number — it is a **concept** that mathematicians have tamed through set theory. The results are counterintuitive, beautiful, and sometimes paradoxical.
+
+## Hilbert's Hotel
+
+Imagine a hotel with **infinitely many** rooms, all occupied. A new guest arrives:
+
+- **One guest:** Move guest in room $n$ to room $n+1$. Room 1 is now free.
+- **Countably many guests:** Move guest $n$ to room $2n$. All odd rooms are free.
+
+This works because $|\mathbb{N}| = |\mathbb{N} \setminus \{1\}| = |2\mathbb{N}|$ — all countably infinite.
+
+## Cantor's Diagonal Argument
+
+**Theorem (Cantor, 1891).** The real numbers are **uncountable**: $|\mathbb{R}| > |\mathbb{N}|$.
+
+*Proof.* Suppose $f: \mathbb{N} \to (0,1)$ is a surjection. Write each $f(n)$ in decimal:
+
+$$
+f(n) = 0.d_{n1}d_{n2}d_{n3}\ldots
+$$
+
+Define $x = 0.x_1x_2x_3\ldots$ where $x_n \neq d_{nn}$ (and $x_n \notin \{0, 9\}$). Then $x \neq f(n)$ for all $n$ (they differ in the $n$-th digit). Contradiction. $\square$
+
+## Cardinals and Cardinalities
+
+$$
+|\mathbb{N}| = \aleph_0 < |\mathbb{R}| = 2^{\aleph_0} = \mathfrak{c}
+$$
+
+**Cantor's theorem:** For any set $A$, $|A| < |\mathcal{P}(A)|$. This gives an infinite hierarchy:
+
+$$
+\aleph_0 < 2^{\aleph_0} < 2^{2^{\aleph_0}} < \cdots
+$$
+
+## The Continuum Hypothesis
+
+**CH:** There is no cardinal between $\aleph_0$ and $2^{\aleph_0}$, i.e., $2^{\aleph_0} = \aleph_1$.
+
+Gödel (1940) proved CH is consistent with ZFC. Cohen (1963) proved its negation is also consistent. CH is **independent** of ZFC.
+
+## Key Takeaways
+
+1. Not all infinities are equal: $|\mathbb{N}| < |\mathbb{R}|$.
+2. The diagonal argument is one of the most powerful proof techniques in mathematics.
+3. The Continuum Hypothesis is independent of standard set theory — it can neither be proved nor disproved from ZFC.
+
+## Further Reading
+
+- Dauben, *Georg Cantor: His Mathematics and Philosophy of the Infinite*
+- Enderton, *Elements of Set Theory*
+- Cohen, *Set Theory and the Continuum Hypothesis*
+
+## Related Posts
+
+- [The Axiom of Choice and Zorn's Lemma: Foundations and Consequences](/blog/axiom-of-choice-zorns-lemma)
+- [The Cantor Set: A Beautiful Monster of Mathematics](/blog/cantor-set-beauty)
+- [Real Analysis: The Rigorous Foundation of Calculus](/blog/real-analysis-foundations)
+
+---
+
+*Infinity is not merely large — it is a realm where our finite intuitions break down completely.*

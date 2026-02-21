@@ -15,6 +15,17 @@
     --color-text: #111827;
     --color-text-secondary: #6b7280;
     --color-border: #e5e7eb;
+
+    /* MSE-style tag colors */
+    --tag-bg: #e1ecf4;
+    --tag-border: #afc8e1;
+    --tag-text: #39739d;
+    --tag-bg-hover: #d0e3f1;
+    --tag-border-hover: #7db0d6;
+    --tag-text-hover: #2c5777;
+    --tag-bg-active: #39739d;
+    --tag-border-active: #2c5777;
+    --tag-text-active: #ffffff;
   }
 
   .dark {
@@ -25,6 +36,17 @@
     --color-text: #f9fafb;
     --color-text-secondary: #9ca3af;
     --color-border: #1f2937;
+
+    /* MSE-style tag colors (dark) */
+    --tag-bg: #1e3a5f;
+    --tag-border: #2d5a8e;
+    --tag-text: #7ab8e8;
+    --tag-bg-hover: #264d7a;
+    --tag-border-hover: #4a8ac4;
+    --tag-text-hover: #a0d0f5;
+    --tag-bg-active: #4a8ac4;
+    --tag-border-active: #6aa8da;
+    --tag-text-active: #ffffff;
   }
 
   html {

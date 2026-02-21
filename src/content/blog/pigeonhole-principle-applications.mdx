@@ -1,0 +1,56 @@
+---
+title: "The Pigeonhole Principle: Simple Idea, Powerful Results"
+date: "2025-12-18"
+category: "Combinatorics"
+excerpt: "How the pigeonhole principle — if n+1 pigeons sit in n holes, some hole has two — leads to profound results in combinatorics, number theory, and analysis."
+tags:
+  - "combinatorics"
+  - "proof-techniques"
+  - "number-theory"
+---
+
+## Introduction
+
+The **pigeonhole principle** states: if $n+1$ objects are placed into $n$ containers, at least one container holds at least two objects. Despite its simplicity, it is one of the most powerful tools in mathematics.
+
+## Classic Applications
+
+**Theorem.** Among any 5 points in a unit square, at least two are within distance $\frac{\sqrt{2}}{2}$.
+
+*Proof.* Divide the square into 4 equal sub-squares of side $\frac{1}{2}$. By pigeonhole, some sub-square contains $\geq 2$ points. The maximum distance within a sub-square is $\frac{\sqrt{2}}{2}$. $\square$
+
+**Theorem.** For any irrational $\alpha$ and any $n$, there exist integers $p, q$ with $1 \leq q \leq n$ and:
+
+$$
+\left|\alpha - \frac{p}{q}\right| < \frac{1}{q(n+1)}
+$$
+
+*Proof.* Consider $\{0\}, \{\alpha\}, \{2\alpha\}, \ldots, \{n\alpha\}$ (fractional parts). These are $n+1$ numbers in $[0,1)$. Divide into $n$ subintervals. By pigeonhole, two fractional parts lie in the same subinterval. $\square$
+
+## Generalized Pigeonhole Principle
+
+If $n$ objects are placed in $k$ containers, some container has at least $\lceil n/k \rceil$ objects.
+
+**Application:** Among any 27 words in English, at least two start with the same letter (since there are only 26 letters).
+
+## Key Takeaways
+
+1. Pigeonhole is non-constructive — it proves existence without finding the object.
+2. It's the foundation of **Dirichlet's approximation theorem** in number theory.
+3. The generalized version handles unequal distributions elegantly.
+
+## Further Reading
+
+- Aigner & Ziegler, *Proofs from THE BOOK*
+- Engel, *Problem-Solving Strategies*
+- Lovász, *Combinatorial Problems and Exercises*
+
+## Related Posts
+
+- [Graph Theory: Structure, Coloring, and the Four Color Theorem](/blog/graph-theory-coloring)
+- [The Distribution of Prime Numbers: From Euclid to the Prime Number Theorem](/blog/prime-number-distribution)
+- [Group Theory: Symmetry as the Language of Mathematics](/blog/group-theory-symmetry)
+
+---
+
+*The most humble principle in mathematics — and one of the most powerful.*

@@ -1,0 +1,70 @@
+---
+title: "Euler's Formula for Polyhedra: V - E + F = 2"
+date: "2025-12-06"
+category: "Topology"
+excerpt: "Euler's polyhedron formula V - E + F = 2 — one of the first results in topology — connecting vertices, edges, and faces of convex polyhedra."
+tags:
+  - "topology"
+  - "geometry"
+  - "combinatorics"
+---
+
+## Introduction
+
+**Euler's formula** for convex polyhedra states:
+
+$$
+V - E + F = 2
+$$
+
+where $V$ = vertices, $E$ = edges, $F$ = faces. This deceptively simple equation is one of the founding results of **topology**.
+
+## Verification
+
+| Polyhedron | $V$ | $E$ | $F$ | $V - E + F$ |
+|---|---|---|---|---|
+| Tetrahedron | 4 | 6 | 4 | 2 |
+| Cube | 8 | 12 | 6 | 2 |
+| Octahedron | 6 | 12 | 8 | 2 |
+| Dodecahedron | 20 | 30 | 12 | 2 |
+| Icosahedron | 12 | 30 | 20 | 2 |
+
+## Proof Sketch
+
+Remove one face and flatten the remaining surface onto the plane. The result is a planar graph with $V$ vertices, $E$ edges, and $F - 1$ faces (including the outer face). By induction on edges (triangulating, then removing):
+
+$$
+V - E + (F - 1) = 1 \implies V - E + F = 2
+$$
+
+## The Euler Characteristic
+
+For a general surface $\Sigma$, the **Euler characteristic** $\chi(\Sigma) = V - E + F$ is a topological invariant:
+
+$$
+\chi(S^2) = 2, \quad \chi(T^2) = 0, \quad \chi(\Sigma_g) = 2 - 2g
+$$
+
+where $\Sigma_g$ is the surface of genus $g$ (a "donut with $g$ holes").
+
+## Key Takeaways
+
+1. $V - E + F = 2$ holds for any convex polyhedron, regardless of shape.
+2. The Euler characteristic is a **topological invariant** — it doesn't change under continuous deformation.
+3. This formula connects combinatorics, geometry, and topology in a single equation.
+
+## Further Reading
+
+- Richeson, *Euler's Gem: The Polyhedron Formula and the Birth of Topology*
+- Munkres, *Topology*
+- Cromwell, *Polyhedra*
+
+## Related Posts
+
+- [Introduction to Algebraic Topology: Fundamental Groups and Homotopy](/blog/algebraic-topology-fundamental-group)
+- [Topology of Metric Spaces: From Open Sets to Compactness](/blog/topology-metric-spaces)
+- [Differential Geometry: Curvature and the Soul of Surfaces](/blog/differential-geometry-curvature)
+
+---
+
+*Euler's formula is where counting becomes topology.*

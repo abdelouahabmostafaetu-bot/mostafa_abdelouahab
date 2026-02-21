@@ -1,0 +1,70 @@
+---
+title: "Game Theory: Nash Equilibrium and Strategic Thinking"
+date: "2025-12-22"
+category: "Applied Mathematics"
+excerpt: "An introduction to game theory — strategic interactions, Nash equilibrium, the prisoner's dilemma, and the mathematics of rational decision-making."
+tags:
+  - "game-theory"
+  - "optimization"
+  - "applied-mathematics"
+---
+
+## Introduction
+
+**Game theory** is the mathematical study of strategic interactions — situations where the outcome for each participant depends on the choices of all participants. Pioneered by von Neumann and Morgenstern, and revolutionized by John Nash, it has applications from economics to biology.
+
+## Basic Setup
+
+A **game** in normal form consists of:
+- A set of **players** $N = \{1, 2, \ldots, n\}$
+- For each player $i$, a **strategy set** $S_i$
+- For each player $i$, a **payoff function** $u_i: S_1 \times \cdots \times S_n \to \mathbb{R}$
+
+## Nash Equilibrium
+
+**Definition.** A strategy profile $s^* = (s_1^*, \ldots, s_n^*)$ is a **Nash equilibrium** if no player can improve their payoff by unilaterally changing strategy:
+
+$$
+u_i(s_i^*, s_{-i}^*) \geq u_i(s_i, s_{-i}^*) \quad \forall s_i \in S_i, \; \forall i \in N
+$$
+
+**Nash's Theorem (1950).** Every finite game has at least one Nash equilibrium (possibly in **mixed strategies**).
+
+## The Prisoner's Dilemma
+
+|  | Cooperate | Defect |
+|---|---|---|
+| **Cooperate** | $(-1, -1)$ | $(-3, 0)$ |
+| **Defect** | $(0, -3)$ | $(-2, -2)$ |
+
+The unique Nash equilibrium is (Defect, Defect) with payoff $(-2, -2)$, even though (Cooperate, Cooperate) gives $(-1, -1)$ — a **Pareto improvement**. This tension between individual and collective rationality is the heart of game theory.
+
+## Mixed Strategy Equilibrium
+
+In **Matching Pennies**, no pure Nash equilibrium exists. The mixed equilibrium has each player randomizing $50$-$50$:
+
+$$
+\sigma_1^* = \sigma_2^* = \left(\frac{1}{2}, \frac{1}{2}\right)
+$$
+
+## Key Takeaways
+
+1. Nash equilibrium is the central solution concept: no player wants to deviate.
+2. Nash's existence theorem guarantees mixed equilibria in all finite games.
+3. The Prisoner's Dilemma shows individual rationality can lead to collective irrationality.
+
+## Further Reading
+
+- Osborne & Rubinstein, *A Course in Game Theory*
+- Myerson, *Game Theory: Analysis of Conflict*
+- von Neumann & Morgenstern, *Theory of Games and Economic Behavior*
+
+## Related Posts
+
+- [Probability Theory: From Kolmogorov's Axioms to the Law of Large Numbers](/blog/probability-theory-foundations)
+- [The Central Limit Theorem: Why the Bell Curve Rules the World](/blog/central-limit-theorem)
+- [Linear Algebra: Eigenvalues, Eigenvectors, and the Spectral Theorem](/blog/eigenvalues-spectral-theorem)
+
+---
+
+*The mathematics of strategy — where rationality itself becomes the subject of study.*

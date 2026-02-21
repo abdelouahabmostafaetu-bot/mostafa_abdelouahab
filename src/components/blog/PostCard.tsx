@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { TagList } from './Tag';
 
 interface PostCardProps {
   slug: string;
@@ -7,6 +8,7 @@ interface PostCardProps {
   category: string;
   excerpt: string;
   readingTime: string;
+  tags?: string[];
   isLast?: boolean;
 }
 
@@ -17,11 +19,12 @@ export default function PostCard({
   category,
   excerpt,
   readingTime,
+  tags,
   isLast = false,
 }: PostCardProps) {
   return (
-    <Link href={`/blog/${slug}`} className="group block">
-      <article className={`py-6 ${!isLast ? 'border-b border-[var(--color-border)]' : ''}`}>
+    <article className={`py-6 ${!isLast ? 'border-b border-[var(--color-border)]' : ''}`}>
+      <Link href={`/blog/${slug}`} className="group block">
         {/* Date & Category */}
         <div className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)] mb-2">
           <time>{date}</time>
@@ -40,7 +43,14 @@ export default function PostCard({
         <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed line-clamp-2">
           {excerpt}
         </p>
-      </article>
-    </Link>
+      </Link>
+
+      {/* Tags */}
+      {tags && tags.length > 0 && (
+        <div className="mt-2.5">
+          <TagList tags={tags} size="sm" />
+        </div>
+      )}
+    </article>
   );
 }

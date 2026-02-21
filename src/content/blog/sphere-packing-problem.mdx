@@ -1,0 +1,64 @@
+---
+title: "Sphere Packing: From Kepler's Conjecture to Hales's Proof"
+date: "2025-11-22"
+category: "Geometry"
+excerpt: "The sphere packing problem — how to arrange spheres to fill space most efficiently — from Kepler's 1611 conjecture to its computer-assisted proof in 2014."
+tags:
+  - "geometry"
+  - "combinatorics"
+  - "optimization"
+---
+
+## Introduction
+
+How should identical spheres be arranged to fill space as densely as possible? In 1611, Kepler conjectured that the face-centered cubic packing achieves the maximum density:
+
+$$
+\delta = \frac{\pi}{3\sqrt{2}} \approx 0.7405
+$$
+
+This was not proved until 1998 by Thomas Hales, using a computer-assisted proof formally verified in 2014.
+
+## The Packing Density
+
+For a packing $\mathcal{P}$ of unit spheres in $\mathbb{R}^3$:
+
+$$
+\delta(\mathcal{P}) = \lim_{R \to \infty} \frac{\text{Vol}(\mathcal{P} \cap B(0,R))}{\text{Vol}(B(0,R))}
+$$
+
+**FCC packing:** Each sphere touches 12 neighbors. The layers stack as ABCAB... with density $\frac{\pi}{3\sqrt{2}}$.
+
+## In Other Dimensions
+
+| Dimension | Densest packing | Density | Lattice |
+|---|---|---|---|
+| 1 | $1$ | $1$ | $\mathbb{Z}$ |
+| 2 | $\frac{\pi}{2\sqrt{3}} \approx 0.9069$ | Hexagonal | $A_2$ |
+| 3 | $\frac{\pi}{3\sqrt{2}} \approx 0.7405$ | FCC | $A_3$ |
+| 8 | $\frac{\pi^4}{384} \approx 0.2537$ | Viazovska (2016) | $E_8$ |
+| 24 | $\frac{\pi^{12}}{12!} \approx 0.00193$ | CMSV (2016) | Leech |
+
+Maryna Viazovska's proof of optimal sphere packing in 8 dimensions (2016) used modular forms and earned her a Fields Medal.
+
+## Key Takeaways
+
+1. Kepler's conjecture took 387 years to prove — one of the longest open problems.
+2. Optimal packings in 8 and 24 dimensions have extraordinary connections to number theory and algebra.
+3. Computer-assisted proofs raise interesting philosophical questions about mathematical certainty.
+
+## Further Reading
+
+- Conway & Sloane, *Sphere Packings, Lattices and Groups*
+- Hales, *Dense Sphere Packings*
+- Szpiro, *Kepler's Conjecture*
+
+## Related Posts
+
+- [Differential Geometry: Curvature and the Soul of Surfaces](/blog/differential-geometry-curvature)
+- [Group Theory: Symmetry as the Language of Mathematics](/blog/group-theory-symmetry)
+- [The Pigeonhole Principle: Simple Idea, Powerful Results](/blog/pigeonhole-principle-applications)
+
+---
+
+*From stacking cannonballs to modular forms — sphere packing connects the mundane to the sublime.*

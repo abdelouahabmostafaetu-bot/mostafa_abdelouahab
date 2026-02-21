@@ -1,0 +1,73 @@
+---
+title: "Modular Arithmetic: The Mathematics of Clocks and Codes"
+date: "2025-11-20"
+category: "Number Theory"
+excerpt: "Modular arithmetic — from clock arithmetic to cryptography — Fermat's little theorem, Chinese remainder theorem, and the ring ℤ/nℤ."
+tags:
+  - "number-theory"
+  - "modular-arithmetic"
+  - "cryptography"
+---
+
+## Introduction
+
+**Modular arithmetic** works with remainders. We write $a \equiv b \pmod{n}$ if $n \mid (a - b)$. A clock is a natural model: $15 \equiv 3 \pmod{12}$.
+
+## The Ring $\mathbb{Z}/n\mathbb{Z}$
+
+The integers modulo $n$ form a **ring** with $n$ elements. Its structure depends on $n$:
+
+- If $n = p$ (prime), $\mathbb{Z}/p\mathbb{Z}$ is a **field** — every non-zero element has an inverse.
+- If $n$ is composite, $\mathbb{Z}/n\mathbb{Z}$ has **zero divisors**: $2 \cdot 3 \equiv 0 \pmod{6}$.
+
+## Fermat's Little Theorem
+
+**Theorem.** If $p$ is prime and $\gcd(a, p) = 1$:
+
+$$
+a^{p-1} \equiv 1 \pmod{p}
+$$
+
+**Euler's generalization:** $a^{\varphi(n)} \equiv 1 \pmod{n}$ when $\gcd(a, n) = 1$, where $\varphi(n) = n \prod_{p|n}(1 - 1/p)$ is Euler's totient.
+
+## Chinese Remainder Theorem
+
+If $\gcd(m, n) = 1$, the system:
+
+$$
+x \equiv a \pmod{m}, \quad x \equiv b \pmod{n}
+$$
+
+has a unique solution modulo $mn$. Algebraically: $\mathbb{Z}/mn\mathbb{Z} \cong \mathbb{Z}/m\mathbb{Z} \times \mathbb{Z}/n\mathbb{Z}$.
+
+## Application: RSA Cryptography
+
+Choose primes $p, q$. Let $n = pq$ and $e$ with $\gcd(e, \varphi(n)) = 1$. The RSA encryption:
+
+$$
+c \equiv m^e \pmod{n}, \qquad m \equiv c^d \pmod{n}
+$$
+
+where $ed \equiv 1 \pmod{\varphi(n)}$. Security relies on the difficulty of factoring $n$.
+
+## Key Takeaways
+
+1. $\mathbb{Z}/p\mathbb{Z}$ is a field — the foundation of finite field theory.
+2. Fermat and Euler's theorems are the backbone of number-theoretic cryptography.
+3. CRT decomposes problems into simpler modular components.
+
+## Further Reading
+
+- Niven, Zuckerman & Montgomery, *An Introduction to the Theory of Numbers*
+- Ireland & Rosen, *A Classical Introduction to Modern Number Theory*
+- Koblitz, *A Course in Number Theory and Cryptography*
+
+## Related Posts
+
+- [Quadratic Reciprocity: The Golden Theorem of Number Theory](/blog/quadratic-reciprocity)
+- [Elliptic Curves: From Diophantine Equations to Modern Cryptography](/blog/elliptic-curves-cryptography)
+- [The Distribution of Prime Numbers: From Euclid to the Prime Number Theorem](/blog/prime-number-distribution)
+
+---
+
+*Modular arithmetic: where numbers wrap around and reveal their deepest secrets.*

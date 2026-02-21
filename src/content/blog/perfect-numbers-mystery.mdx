@@ -1,0 +1,72 @@
+---
+title: "Perfect Numbers: An Ancient Mystery Still Unsolved"
+date: "2025-11-16"
+category: "Number Theory"
+excerpt: "Perfect numbers — integers equal to the sum of their proper divisors — from Euclid's formula to the open question of odd perfect numbers."
+tags:
+  - "number-theory"
+  - "prime-numbers"
+  - "sequences-and-series"
+---
+
+## Introduction
+
+A positive integer $n$ is **perfect** if it equals the sum of its proper divisors:
+
+$$
+\sigma(n) = 2n
+$$
+
+The first few: $6 = 1+2+3$, $28 = 1+2+4+7+14$, $496$, $8128$.
+
+## Euclid-Euler Theorem
+
+**Theorem.** An **even** number is perfect if and only if it has the form:
+
+$$
+n = 2^{p-1}(2^p - 1)
+$$
+
+where $2^p - 1$ is a **Mersenne prime**.
+
+Known Mersenne primes: $p = 2, 3, 5, 7, 13, 17, 19, 31, \ldots$ As of 2024, 51 Mersenne primes are known, giving 51 even perfect numbers.
+
+## The Odd Perfect Number Question
+
+**Open problem:** Do **odd** perfect numbers exist?
+
+If one exists, it must satisfy:
+- $n > 10^{1500}$
+- $n$ has at least 101 prime factors (counted with multiplicity)
+- The largest prime factor exceeds $10^8$
+
+Most number theorists believe none exist, but no proof exists.
+
+## Abundancy and Deficiency
+
+Define the **abundancy index** $I(n) = \sigma(n)/n$:
+- $I(n) = 2$: perfect
+- $I(n) > 2$: abundant ($n = 12$: $\sigma(12)/12 = 28/12 > 2$)
+- $I(n) < 2$: deficient ($n = 8$: $\sigma(8)/8 = 15/8 < 2$)
+
+## Key Takeaways
+
+1. Even perfect numbers are completely characterized by Mersenne primes.
+2. The existence of odd perfect numbers is one of the oldest open problems (2,000+ years).
+3. The density of perfect numbers among integers is zero.
+
+## Further Reading
+
+- Dickson, *History of the Theory of Numbers*, Vol. I
+- Guy, *Unsolved Problems in Number Theory*
+- Voight, *Mersenne Primes and Perfect Numbers*
+
+## Related Posts
+
+- [The Distribution of Prime Numbers: From Euclid to the Prime Number Theorem](/blog/prime-number-distribution)
+- [The Riemann Zeta Function: Gateway to the Primes](/blog/riemann-zeta-function)
+- [Quadratic Reciprocity: The Golden Theorem of Number Theory](/blog/quadratic-reciprocity)
+
+---
+
+*Perfect numbers: where elegance meets mystery in the oldest mathematical quest.*
