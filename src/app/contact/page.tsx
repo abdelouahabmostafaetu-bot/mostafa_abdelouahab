@@ -1,9 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Mail, MapPin, Send, CheckCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+
+// ============================================================
+// TODO: Replace these placeholders with your real EmailJS IDs
+// 1. Go to https://www.emailjs.com/ and create a free account
+// 2. Add an email service (Gmail, Outlook, etc.) → copy SERVICE_ID
+// 3. Create an email template → copy TEMPLATE_ID
+// 4. Go to Account → copy your PUBLIC_KEY
+// ============================================================
+const EMAILJS_SERVICE_ID = 'service_23v7xkn';
+const EMAILJS_TEMPLATE_ID = 'template_v0pz5co';
+const EMAILJS_PUBLIC_KEY = 'e5WN5YFhN6mFynUwJ';
 
 export default function ContactPage() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,18 +30,20 @@ export default function ContactPage() {
     setStatus('sending');
 
     try {
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
 
-      if (response.ok) {
-        setStatus('sent');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setStatus('error');
-      }
+      setStatus('sent');
+      setFormData({ name: '', email: '', subject: '', message: '' });
     } catch {
       setStatus('error');
     }
