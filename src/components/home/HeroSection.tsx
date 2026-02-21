@@ -33,18 +33,18 @@ export default function HeroSection() {
 
         {/* CTA */}
         <div className="flex items-center justify-center gap-4">
-          <a
-            href="/files/cv.pdf"
-            className="px-6 py-2.5 bg-[var(--color-text)] text-[var(--color-bg)] rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
-          >
-            Download CV
-          </a>
           <Link
             href="/contact"
-            className="px-6 py-2.5 border border-[var(--color-border)] rounded-lg text-sm font-medium text-[var(--color-text)] hover:bg-[var(--color-surface)] transition-colors inline-flex items-center gap-2"
+            className="px-6 py-2.5 bg-[var(--color-text)] text-[var(--color-bg)] rounded-lg text-sm font-medium hover:opacity-90 transition-opacity inline-flex items-center gap-2"
           >
             <Mail size={16} />
             Contact
+          </Link>
+          <Link
+            href="/blog"
+            className="px-6 py-2.5 border border-[var(--color-border)] rounded-lg text-sm font-medium text-[var(--color-text)] hover:bg-[var(--color-surface)] transition-colors"
+          >
+            Read Blog
           </Link>
         </div>
 

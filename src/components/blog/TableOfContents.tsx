@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { clsx } from 'clsx';
 
 interface Heading {
   id: string;
@@ -39,22 +38,22 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
   if (headings.length === 0) return null;
 
   return (
-    <nav className="sticky top-24">
-      <h4 className="text-sm font-semibold text-[var(--color-text)] mb-3 uppercase tracking-wider">
-        Table of Contents
-      </h4>
-      <ul className="space-y-1 border-l-2 border-[var(--color-border)]">
+    <nav className="sticky top-28">
+      <p className="text-[10px] uppercase tracking-widest text-[var(--color-text-secondary)] mb-3">
+        On this page
+      </p>
+      <ul className="space-y-0.5 border-l border-[var(--color-border)]">
         {headings.map((heading) => (
           <li key={heading.id}>
             <a
               href={`#${heading.id}`}
-              className={clsx(
-                'block text-sm py-1 transition-all duration-200 border-l-2 -ml-[2px]',
-                heading.level === 2 ? 'pl-4' : 'pl-8',
+              className={`block text-xs py-1 transition-colors duration-150 border-l -ml-px ${
+                heading.level === 2 ? 'pl-3' : 'pl-6'
+              } ${
                 activeId === heading.id
-                  ? 'text-primary-800 dark:text-primary-300 border-accent-500 font-medium'
-                  : 'text-[var(--color-text-secondary)] border-transparent hover:text-primary-800 dark:hover:text-primary-300 hover:border-primary-300'
-              )}
+                  ? 'text-[var(--color-accent)] border-[var(--color-accent)] font-medium'
+                  : 'text-[var(--color-text-secondary)] border-transparent hover:text-[var(--color-text)]'
+              }`}
             >
               {heading.text}
             </a>

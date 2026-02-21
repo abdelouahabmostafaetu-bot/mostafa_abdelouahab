@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 interface PostCardProps {
   slug: string;
@@ -8,6 +7,7 @@ interface PostCardProps {
   category: string;
   excerpt: string;
   readingTime: string;
+  isLast?: boolean;
 }
 
 export default function PostCard({
@@ -17,41 +17,29 @@ export default function PostCard({
   category,
   excerpt,
   readingTime,
+  isLast = false,
 }: PostCardProps) {
   return (
     <Link href={`/blog/${slug}`} className="group block">
-      <article className="p-5 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-colors h-full">
-        {/* Meta */}
-        <div className="flex items-center gap-3 mb-3 text-xs text-[var(--color-text-secondary)]">
-          <span className="px-2 py-0.5 rounded bg-[var(--color-surface)] font-medium">
-            {category}
-          </span>
-          <span className="flex items-center gap-1">
-            <Calendar size={12} />
-            {date}
-          </span>
+      <article className={`py-6 ${!isLast ? 'border-b border-[var(--color-border)]' : ''}`}>
+        {/* Date & Category */}
+        <div className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)] mb-2">
+          <time>{date}</time>
+          <span className="text-[var(--color-border)]">/</span>
+          <span>{category}</span>
+          <span className="text-[var(--color-border)]">/</span>
+          <span>{readingTime}</span>
         </div>
 
         {/* Title */}
-        <h3 className="text-lg font-semibold text-[var(--color-text)] mb-2 group-hover:text-[var(--color-accent)] transition-colors leading-snug">
+        <h3 className="text-xl font-semibold text-[var(--color-text)] mb-1.5 group-hover:text-[var(--color-accent)] transition-colors leading-snug">
           {title}
         </h3>
 
         {/* Excerpt */}
-        <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4 line-clamp-3">
+        <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed line-clamp-2">
           {excerpt}
         </p>
-
-        {/* Footer */}
-        <div className="flex items-center justify-between text-xs text-[var(--color-text-secondary)]">
-          <span className="flex items-center gap-1">
-            <Clock size={12} />
-            {readingTime}
-          </span>
-          <span className="flex items-center gap-1 text-[var(--color-accent)] font-medium">
-            Read <ArrowRight size={12} />
-          </span>
-        </div>
       </article>
     </Link>
   );

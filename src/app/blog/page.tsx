@@ -11,22 +11,23 @@ export default function BlogPage() {
   const posts = getBlogPosts();
 
   return (
-    <div className="pt-24 pb-16">
-      <div className="max-w-2xl mx-auto px-6">
+    <div className="pt-28 pb-20">
+      <div className="max-w-xl mx-auto px-6">
         {/* Header */}
-        <div className="mb-10">
-          <h1 className="text-3xl font-bold text-[var(--color-text)] mb-2">
+        <div className="mb-12">
+          <p className="text-xs uppercase tracking-widest text-[var(--color-accent)] font-medium mb-3">
+            Writing
+          </p>
+          <h1 className="text-4xl font-bold text-[var(--color-text)] mb-3 tracking-tight">
             Blog
           </h1>
-          <p className="text-[var(--color-text-secondary)]">
-            Mathematical explorations, notes, and tutorials
-          </p>
+          <div className="w-12 h-0.5 bg-[var(--color-accent)]"></div>
         </div>
 
         {/* Posts */}
         {posts.length > 0 ? (
-          <div className="space-y-4">
-            {posts.map((post) => (
+          <div>
+            {posts.map((post, index) => (
               <PostCard
                 key={post.slug}
                 slug={post.slug}
@@ -35,17 +36,15 @@ export default function BlogPage() {
                 category={post.category}
                 excerpt={post.excerpt}
                 readingTime={post.readingTime}
+                isLast={index === posts.length - 1}
               />
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 rounded-lg border border-[var(--color-border)]">
-            <p className="text-4xl mb-3">✍️</p>
-            <h3 className="text-lg font-semibold text-[var(--color-text)] mb-1">
-              Coming Soon
-            </h3>
+          <div className="text-center py-16">
+            <p className="text-3xl mb-3">✍️</p>
             <p className="text-sm text-[var(--color-text-secondary)]">
-              Blog posts are on the way.
+              Posts coming soon.
             </p>
           </div>
         )}

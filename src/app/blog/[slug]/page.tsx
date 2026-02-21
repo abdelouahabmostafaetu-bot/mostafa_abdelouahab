@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Calendar, Clock } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { getBlogPost, getBlogPosts } from '@/lib/content';
 import { renderMDX, extractHeadings } from '@/lib/mdx';
 import { formatDate } from '@/lib/utils';
@@ -35,39 +35,33 @@ export default async function BlogPostPage({
   const headings = extractHeadings(post.content);
 
   return (
-    <div className="pt-24 pb-16">
+    <div className="pt-28 pb-20">
       <div className="max-w-3xl mx-auto px-6">
         {/* Back */}
         <Link
           href="/blog"
-          className="inline-flex items-center gap-1 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors mb-8"
+          className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors mb-10"
         >
-          <ArrowLeft size={14} />
-          Back to Blog
+          <ArrowLeft size={12} />
+          All Posts
         </Link>
 
-        <div className="flex gap-12">
+        <div className="flex gap-14">
           {/* Article */}
           <article className="flex-grow min-w-0">
-            <header className="mb-8">
-              <div className="flex items-center gap-3 mb-3 text-sm text-[var(--color-text-secondary)]">
-                <span className="px-2 py-0.5 rounded bg-[var(--color-surface)] text-xs font-medium">
-                  {post.category}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Calendar size={14} />
-                  {formatDate(post.date)}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock size={14} />
-                  {post.readingTime}
-                </span>
+            <header className="mb-10 pb-8 border-b border-[var(--color-border)]">
+              <div className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)] mb-4">
+                <time>{formatDate(post.date)}</time>
+                <span className="text-[var(--color-border)]">/</span>
+                <span>{post.category}</span>
+                <span className="text-[var(--color-border)]">/</span>
+                <span>{post.readingTime}</span>
               </div>
-              <h1 className="text-3xl font-bold text-[var(--color-text)] leading-tight">
+              <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] leading-tight tracking-tight">
                 {post.title}
               </h1>
               {post.excerpt && (
-                <p className="mt-3 text-[var(--color-text-secondary)] leading-relaxed">
+                <p className="mt-4 text-lg text-[var(--color-text-secondary)] leading-relaxed">
                   {post.excerpt}
                 </p>
               )}
@@ -78,7 +72,7 @@ export default async function BlogPostPage({
 
           {/* ToC */}
           {headings.length > 0 && (
-            <aside className="hidden xl:block w-56 flex-shrink-0">
+            <aside className="hidden xl:block w-48 flex-shrink-0">
               <TableOfContents headings={headings} />
             </aside>
           )}
