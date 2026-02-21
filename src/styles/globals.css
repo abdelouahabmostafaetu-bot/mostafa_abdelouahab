@@ -8,23 +8,23 @@
 /* ===== Base Styles ===== */
 @layer base {
   :root {
-    --color-primary: #1e3a5f;
-    --color-accent: #c9a84c;
-    --color-surface: #f5f7fa;
+    --color-primary: #111827;
+    --color-accent: #2563eb;
+    --color-surface: #f9fafb;
     --color-bg: #ffffff;
-    --color-text: #1a1a2e;
-    --color-text-secondary: #4a5568;
-    --color-border: #e2e8f0;
+    --color-text: #111827;
+    --color-text-secondary: #6b7280;
+    --color-border: #e5e7eb;
   }
 
   .dark {
-    --color-primary: #5b8dbf;
-    --color-accent: #d4b863;
-    --color-surface: #1a1f2e;
-    --color-bg: #0f1219;
-    --color-text: #e2e8f0;
-    --color-text-secondary: #a0aec0;
-    --color-border: #2d3748;
+    --color-primary: #f9fafb;
+    --color-accent: #60a5fa;
+    --color-surface: #111827;
+    --color-bg: #030712;
+    --color-text: #f9fafb;
+    --color-text-secondary: #9ca3af;
+    --color-border: #1f2937;
   }
 
   html {
@@ -32,12 +32,8 @@
   }
 
   body {
-    @apply bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300;
+    @apply bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-200;
     font-family: 'Inter', system-ui, sans-serif;
-  }
-
-  h1, h2, h3, h4 {
-    font-family: 'Playfair Display', Georgia, serif;
   }
 }
 
@@ -49,17 +45,14 @@
 
   .prose-academic h1 {
     @apply text-3xl font-bold mt-10 mb-4 text-[var(--color-text)];
-    font-family: 'Playfair Display', Georgia, serif;
   }
 
   .prose-academic h2 {
     @apply text-2xl font-bold mt-8 mb-3 text-[var(--color-text)];
-    font-family: 'Playfair Display', Georgia, serif;
   }
 
   .prose-academic h3 {
     @apply text-xl font-semibold mt-6 mb-2 text-[var(--color-text)];
-    font-family: 'Playfair Display', Georgia, serif;
   }
 
   .prose-academic p {
@@ -67,7 +60,7 @@
   }
 
   .prose-academic a {
-    @apply text-primary-800 dark:text-primary-300 underline underline-offset-2 hover:text-accent-500 transition-colors;
+    @apply text-[var(--color-accent)] underline underline-offset-2 hover:opacity-80 transition-opacity;
   }
 
   .prose-academic ul, .prose-academic ol {
@@ -87,11 +80,11 @@
   }
 
   .prose-academic blockquote {
-    @apply border-l-4 border-accent-500 pl-4 italic my-4 text-[var(--color-text-secondary)];
+    @apply border-l-4 border-[var(--color-accent)] pl-4 italic my-4 text-[var(--color-text-secondary)];
   }
 
   .prose-academic code {
-    @apply bg-surface-50 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono;
+    @apply bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono;
   }
 
   .prose-academic pre {
@@ -115,7 +108,7 @@
   }
 
   .prose-academic th {
-    @apply bg-surface-50 dark:bg-gray-800 px-4 py-2 text-left font-semibold border border-[var(--color-border)];
+    @apply bg-gray-50 dark:bg-gray-800 px-4 py-2 text-left font-semibold border border-[var(--color-border)];
   }
 
   .prose-academic td {
@@ -195,11 +188,11 @@
 
 /* ===== Scrollbar Styles ===== */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-surface-50 dark:bg-gray-900;
+  @apply bg-gray-50 dark:bg-gray-900;
 }
 
 ::-webkit-scrollbar-thumb {

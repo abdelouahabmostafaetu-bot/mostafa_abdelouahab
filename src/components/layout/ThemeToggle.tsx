@@ -30,15 +30,15 @@ export default function ThemeToggle() {
     }
   };
 
-  if (!mounted) return <div className="w-9 h-9" />;
+  if (!mounted) return <div className="w-8 h-8" />;
 
   return (
     <button
       onClick={toggle}
-      className="p-2 rounded-lg text-[var(--color-text-secondary)] hover:bg-surface-50 dark:hover:bg-gray-800 transition-colors"
+      className="p-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors"
       aria-label="Toggle dark mode"
     >
-      {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+      {darkMode ? <Sun size={18} /> : <Moon size={18} />}
     </button>
   );
 }

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
-import Card from '@/components/ui/Card';
 
 interface PostCardProps {
   slug: string;
@@ -20,42 +19,40 @@ export default function PostCard({
   readingTime,
 }: PostCardProps) {
   return (
-    <Link href={`/blog/${slug}`}>
-      <Card className="group h-full">
-        <div className="flex flex-col h-full">
-          {/* Category & Date */}
-          <div className="flex items-center gap-3 mb-3">
-            <span className="px-3 py-1 text-xs font-semibold rounded-full bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-300">
-              {category}
-            </span>
-            <span className="flex items-center gap-1 text-xs text-[var(--color-text-secondary)]">
-              <Calendar size={12} />
-              {date}
-            </span>
-          </div>
-
-          {/* Title */}
-          <h3 className="font-heading text-lg font-bold text-[var(--color-text)] mb-2 group-hover:text-primary-800 dark:group-hover:text-primary-300 transition-colors leading-tight">
-            {title}
-          </h3>
-
-          {/* Excerpt */}
-          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4 flex-grow line-clamp-3">
-            {excerpt}
-          </p>
-
-          {/* Footer */}
-          <div className="flex items-center justify-between text-xs text-[var(--color-text-secondary)]">
-            <span className="flex items-center gap-1">
-              <Clock size={12} />
-              {readingTime}
-            </span>
-            <span className="flex items-center gap-1 text-primary-800 dark:text-primary-300 group-hover:text-accent-500 transition-colors font-medium">
-              Read more <ArrowRight size={12} />
-            </span>
-          </div>
+    <Link href={`/blog/${slug}`} className="group block">
+      <article className="p-5 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-colors h-full">
+        {/* Meta */}
+        <div className="flex items-center gap-3 mb-3 text-xs text-[var(--color-text-secondary)]">
+          <span className="px-2 py-0.5 rounded bg-[var(--color-surface)] font-medium">
+            {category}
+          </span>
+          <span className="flex items-center gap-1">
+            <Calendar size={12} />
+            {date}
+          </span>
         </div>
-      </Card>
+
+        {/* Title */}
+        <h3 className="text-lg font-semibold text-[var(--color-text)] mb-2 group-hover:text-[var(--color-accent)] transition-colors leading-snug">
+          {title}
+        </h3>
+
+        {/* Excerpt */}
+        <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4 line-clamp-3">
+          {excerpt}
+        </p>
+
+        {/* Footer */}
+        <div className="flex items-center justify-between text-xs text-[var(--color-text-secondary)]">
+          <span className="flex items-center gap-1">
+            <Clock size={12} />
+            {readingTime}
+          </span>
+          <span className="flex items-center gap-1 text-[var(--color-accent)] font-medium">
+            Read <ArrowRight size={12} />
+          </span>
+        </div>
+      </article>
     </Link>
   );
 }

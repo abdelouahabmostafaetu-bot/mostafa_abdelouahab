@@ -1,11 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { Metadata } from 'next';
-import { Mail, MapPin, Building, Send, CheckCircle } from 'lucide-react';
-import ScrollAnimation from '@/components/ui/ScrollAnimation';
-import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
+import { Mail, MapPin, Send, CheckCircle } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -21,8 +17,6 @@ export default function ContactPage() {
     setStatus('sending');
 
     try {
-      // Using Formspree — replace YOUR_FORM_ID with your actual Formspree form ID
-      // Sign up at https://formspree.io and create a form to get your ID
       const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -42,212 +36,129 @@ export default function ContactPage() {
 
   return (
     <div className="pt-24 pb-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Page Header */}
-        <ScrollAnimation>
-          <div className="text-center mb-12">
-            <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--color-text)] mb-4">
-              Contact
-            </h1>
-            <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">
-              Feel free to reach out for academic collaborations, questions, or just to say hello
-            </p>
-          </div>
-        </ScrollAnimation>
+      <div className="max-w-2xl mx-auto px-6">
+        {/* Header */}
+        <div className="mb-10">
+          <h1 className="text-3xl font-bold text-[var(--color-text)] mb-2">
+            Contact
+          </h1>
+          <p className="text-[var(--color-text-secondary)]">
+            Feel free to reach out for collaborations, questions, or to say hello.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          {/* Contact Info */}
-          <ScrollAnimation delay={100} className="lg:col-span-2">
-            <div className="space-y-6">
-              <Card hover={false}>
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg text-primary-800 dark:text-primary-300">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[var(--color-text)]">Email</h3>
-                    <a
-                      href="mailto:mostafaabdelouahab.etu@centre-univ-mila.dz"
-                      className="text-sm text-primary-800 dark:text-primary-300 hover:text-accent-500 transition-colors"
-                    >
-                      mostafaabdelouahab.etu@centre-univ-mila.dz
-                    </a>
-                  </div>
-                </div>
-              </Card>
+        {/* Contact Info */}
+        <div className="flex flex-wrap gap-6 mb-10 text-sm">
+          <a
+            href="mailto:mostafaabdelouahab.etu@centre-univ-mila.dz"
+            className="flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors"
+          >
+            <Mail size={16} />
+            mostafaabdelouahab.etu@centre-univ-mila.dz
+          </a>
+          <span className="flex items-center gap-2 text-[var(--color-text-secondary)]">
+            <MapPin size={16} />
+            University of Mila, Algeria
+          </span>
+        </div>
 
-              <Card hover={false}>
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg text-primary-800 dark:text-primary-300">
-                    <Building size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[var(--color-text)]">Office</h3>
-                    <p className="text-sm text-[var(--color-text-secondary)]">
-                      Department of Mathematics<br />
-                      University of Mila
-                    </p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card hover={false}>
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg text-primary-800 dark:text-primary-300">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[var(--color-text)]">Address</h3>
-                    <p className="text-sm text-[var(--color-text-secondary)]">
-                      University of Mila<br />
-                      Mila, Algeria
-                    </p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card hover={false}>
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-primary-100 dark:bg-primary-900 rounded-lg text-primary-800 dark:text-primary-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[var(--color-text)]">ResearchGate</h3>
-                    <a
-                      href="https://www.researchgate.net/profile/Mostafa-Abdelouahab?ev=hdr_xprf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-primary-800 dark:text-primary-300 hover:text-accent-500 transition-colors"
-                    >
-                      Mostafa Abdelouahab
-                    </a>
-                  </div>
-                </div>
-              </Card>
+        {/* Form */}
+        <div className="rounded-lg border border-[var(--color-border)] p-6">
+          {status === 'sent' ? (
+            <div className="text-center py-8">
+              <CheckCircle size={40} className="text-green-500 mx-auto mb-3" />
+              <h3 className="text-lg font-semibold text-[var(--color-text)] mb-1">
+                Message Sent!
+              </h3>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-4">
+                Thank you. I&apos;ll get back to you soon.
+              </p>
+              <button
+                onClick={() => setStatus('idle')}
+                className="text-sm text-[var(--color-accent)] hover:opacity-80 transition-opacity font-medium"
+              >
+                Send another message
+              </button>
             </div>
-          </ScrollAnimation>
-
-          {/* Contact Form */}
-          <ScrollAnimation delay={200} className="lg:col-span-3">
-            <Card hover={false} padding="lg">
-              {status === 'sent' ? (
-                <div className="text-center py-8">
-                  <CheckCircle size={48} className="text-green-500 mx-auto mb-4" />
-                  <h3 className="font-heading text-xl font-bold text-[var(--color-text)] mb-2">
-                    Message Sent!
-                  </h3>
-                  <p className="text-[var(--color-text-secondary)]">
-                    Thank you for reaching out. I&apos;ll get back to you as soon as possible.
-                  </p>
-                  <button
-                    onClick={() => setStatus('idle')}
-                    className="mt-4 text-sm text-primary-800 dark:text-primary-300 hover:text-accent-500 transition-colors font-medium"
-                  >
-                    Send another message
-                  </button>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-[var(--color-text)] mb-1">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-3 py-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent text-sm transition-all"
+                    placeholder="Your name"
+                  />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-[var(--color-text)] mb-1"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      required
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      className="w-full px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-white dark:bg-gray-800 text-[var(--color-text)] focus:ring-2 focus:ring-primary-800 dark:focus:ring-primary-400 focus:border-transparent transition-all text-sm"
-                      placeholder="Your full name"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-[var(--color-text)] mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-3 py-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent text-sm transition-all"
+                    placeholder="your@email.com"
+                  />
+                </div>
+              </div>
 
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-[var(--color-text)] mb-1"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      className="w-full px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-white dark:bg-gray-800 text-[var(--color-text)] focus:ring-2 focus:ring-primary-800 dark:focus:ring-primary-400 focus:border-transparent transition-all text-sm"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-[var(--color-text)] mb-1">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  required
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  className="w-full px-3 py-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent text-sm transition-all"
+                  placeholder="What's this about?"
+                />
+              </div>
 
-                  <div>
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-[var(--color-text)] mb-1"
-                    >
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      required
-                      value={formData.subject}
-                      onChange={(e) =>
-                        setFormData({ ...formData, subject: e.target.value })
-                      }
-                      className="w-full px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-white dark:bg-gray-800 text-[var(--color-text)] focus:ring-2 focus:ring-primary-800 dark:focus:ring-primary-400 focus:border-transparent transition-all text-sm"
-                      placeholder="What's this about?"
-                    />
-                  </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-[var(--color-text)] mb-1">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  required
+                  rows={5}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full px-3 py-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:border-transparent text-sm resize-none transition-all"
+                  placeholder="Your message..."
+                />
+              </div>
 
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-[var(--color-text)] mb-1"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
-                      className="w-full px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-white dark:bg-gray-800 text-[var(--color-text)] focus:ring-2 focus:ring-primary-800 dark:focus:ring-primary-400 focus:border-transparent transition-all text-sm resize-none"
-                      placeholder="Your message..."
-                    />
-                  </div>
-
-                  {status === 'error' && (
-                    <p className="text-sm text-red-500">
-                      Something went wrong. Please try again or email me directly.
-                    </p>
-                  )}
-
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    className="w-full"
-                    disabled={status === 'sending'}
-                  >
-                    <Send size={16} />
-                    {status === 'sending' ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </form>
+              {status === 'error' && (
+                <p className="text-sm text-red-500">
+                  Something went wrong. Please try again or email me directly.
+                </p>
               )}
-            </Card>
-          </ScrollAnimation>
+
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="w-full flex items-center justify-center gap-2 px-6 py-2.5 bg-[var(--color-text)] text-[var(--color-bg)] rounded-lg text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
+              >
+                <Send size={16} />
+                {status === 'sending' ? 'Sending...' : 'Send Message'}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </div>
