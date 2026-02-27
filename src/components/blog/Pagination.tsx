@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface PaginationProps {
   currentPage: number;
@@ -26,15 +27,12 @@ export default function Pagination({ currentPage, totalPages, activeTag }: Pagin
       for (let i = 1; i <= totalPages; i++) pages.push(i);
       return pages;
     }
-    // Always show first page
     pages.push(1);
     if (currentPage > 3) pages.push('...');
-    // Pages around current
     const start = Math.max(2, currentPage - 1);
     const end = Math.min(totalPages - 1, currentPage + 1);
     for (let i = start; i <= end; i++) pages.push(i);
     if (currentPage < totalPages - 2) pages.push('...');
-    // Always show last page
     pages.push(totalPages);
     return pages;
   }
@@ -42,31 +40,32 @@ export default function Pagination({ currentPage, totalPages, activeTag }: Pagin
   const pageNumbers = getPageNumbers();
 
   return (
-    <nav className="flex items-center justify-center gap-1.5 mt-12 mb-4" aria-label="Pagination">
+    <nav className="flex items-center justify-center gap-1 mt-14 mb-4" aria-label="Pagination">
       {/* Previous */}
       {currentPage > 1 ? (
         <Link
           href={buildHref(currentPage - 1)}
-          className="px-3 py-1.5 text-sm rounded-md text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-hover)] transition-colors"
+          className="p-2 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-hover)] transition-all duration-200"
+          aria-label="Previous page"
         >
-          ← Prev
+          <ChevronLeft size={16} />
         </Link>
       ) : (
-        <span className="px-3 py-1.5 text-sm rounded-md text-[var(--color-text-secondary)] opacity-40 cursor-not-allowed">
-          ← Prev
+        <span className="p-2 rounded-lg text-[var(--color-text-tertiary)] opacity-40 cursor-not-allowed">
+          <ChevronLeft size={16} />
         </span>
       )}
 
       {/* Page numbers */}
       {pageNumbers.map((p, i) =>
         p === '...' ? (
-          <span key={`ellipsis-${i}`} className="px-2 py-1.5 text-sm text-[var(--color-text-secondary)]">
-            …
+          <span key={`ellipsis-${i}`} className="px-2 py-1.5 text-sm text-[var(--color-text-tertiary)]">
+            \u2026
           </span>
         ) : p === currentPage ? (
           <span
             key={p}
-            className="px-3 py-1.5 text-sm font-semibold rounded-md bg-[var(--color-accent)] text-white"
+            className="px-3 py-1.5 text-sm font-semibold rounded-lg bg-[var(--color-text)] text-[var(--color-bg)] shadow-sm"
           >
             {p}
           </span>
@@ -74,7 +73,7 @@ export default function Pagination({ currentPage, totalPages, activeTag }: Pagin
           <Link
             key={p}
             href={buildHref(p)}
-            className="px-3 py-1.5 text-sm rounded-md text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-hover)] transition-colors"
+            className="px-3 py-1.5 text-sm rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-hover)] transition-all duration-200"
           >
             {p}
           </Link>
@@ -85,13 +84,14 @@ export default function Pagination({ currentPage, totalPages, activeTag }: Pagin
       {currentPage < totalPages ? (
         <Link
           href={buildHref(currentPage + 1)}
-          className="px-3 py-1.5 text-sm rounded-md text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-hover)] transition-colors"
+          className="p-2 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-hover)] transition-all duration-200"
+          aria-label="Next page"
         >
-          Next →
+          <ChevronRight size={16} />
         </Link>
       ) : (
-        <span className="px-3 py-1.5 text-sm rounded-md text-[var(--color-text-secondary)] opacity-40 cursor-not-allowed">
-          Next →
+        <span className="p-2 rounded-lg text-[var(--color-text-tertiary)] opacity-40 cursor-not-allowed">
+          <ChevronRight size={16} />
         </span>
       )}
     </nav>

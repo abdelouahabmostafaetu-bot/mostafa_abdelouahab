@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Clock } from 'lucide-react';
 import { TagList } from './Tag';
 
 interface PostCardProps {
@@ -23,19 +24,26 @@ export default function PostCard({
   isLast = false,
 }: PostCardProps) {
   return (
-    <article className={`py-6 ${!isLast ? 'border-b border-[var(--color-border)]' : ''}`}>
+    <article
+      className={`py-7 ${
+        !isLast ? 'border-b border-[var(--color-border)]/60' : ''
+      }`}
+    >
       <Link href={`/blog/${slug}`} className="group block">
         {/* Date & Category */}
-        <div className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)] mb-2">
+        <div className="flex items-center gap-2.5 text-xs text-[var(--color-text-tertiary)] mb-2.5">
           <time>{date}</time>
-          <span className="text-[var(--color-border)]">/</span>
+          <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
           <span>{category}</span>
-          <span className="text-[var(--color-border)]">/</span>
-          <span>{readingTime}</span>
+          <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
+          <span className="inline-flex items-center gap-1">
+            <Clock size={11} />
+            {readingTime}
+          </span>
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-semibold text-[var(--color-text)] mb-1.5 group-hover:text-[var(--color-accent)] transition-colors leading-snug">
+        <h3 className="text-lg font-semibold text-[var(--color-text)] mb-2 group-hover:text-[var(--color-accent)] transition-colors duration-200 leading-snug">
           {title}
         </h3>
 
@@ -47,7 +55,7 @@ export default function PostCard({
 
       {/* Tags */}
       {tags && tags.length > 0 && (
-        <div className="mt-2.5">
+        <div className="mt-3">
           <TagList tags={tags} size="sm" />
         </div>
       )}

@@ -35,15 +35,25 @@ const config: Config = {
           900: '#6b5022',
         },
         surface: {
-          50: '#f5f7fa',  // Light gray sections
-          100: '#ebeef3',
-          200: '#dce1e9',
-          300: '#c8d0dc',
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         heading: ['Playfair Display', 'Georgia', 'serif'],
+      },
+      fontSize: {
+        '2xs': ['0.6875rem', { lineHeight: '1rem' }],
+      },
+      borderRadius: {
+        'xl': '0.75rem',
+        '2xl': '1rem',
+      },
+      transitionDuration: {
+        '250': '250ms',
       },
       typography: {
         DEFAULT: {
