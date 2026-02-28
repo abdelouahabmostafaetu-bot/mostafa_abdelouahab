@@ -6,6 +6,7 @@ import { renderMDX, extractHeadings } from '@/lib/mdx';
 import { formatDate } from '@/lib/utils';
 import TableOfContents from '@/components/blog/TableOfContents';
 import { TagList } from '@/components/blog/Tag';
+import MathCopyButton from '@/components/blog/MathCopyButton';
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -83,7 +84,10 @@ export default async function BlogPostPage({
               )}
             </header>
 
-            <div className="prose-academic">{content}</div>
+            <div className="prose-academic">
+              <MathCopyButton />
+              {content}
+            </div>
 
             {/* Bottom back link */}
             <div className="mt-16 pt-8 border-t border-[var(--color-border)]/60">

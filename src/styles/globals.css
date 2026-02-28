@@ -274,6 +274,44 @@
   font-size: 1.1em;
 }
 
+/* ===== Math Copy Button ===== */
+.katex-display {
+  position: relative;
+}
+
+.math-copy-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  z-index: 10;
+}
+
+.katex-display:hover .math-copy-btn {
+  opacity: 1;
+}
+
+.math-copy-btn:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.math-copy-btn.copied {
+  color: #22c55e;
+  border-color: #22c55e;
+}
+
 /* ===== Scrollbar Styles ===== */
 ::-webkit-scrollbar {
   width: 6px;
